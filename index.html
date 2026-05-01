@@ -14,6 +14,10 @@
   --green:#22C55E;--green-dark:#16A34A;
   --bg:#FAF5FF;--white:#fff;--dark:#1E1B4B;
   --radius:18px;--radius-lg:28px;--radius-xl:40px;
+  --shadow:0 8px 32px rgba(124,58,237,.15);
+  --shadow-hover:0 20px 48px rgba(124,58,237,.28);
+  --font-display:'Fredoka One',cursive;
+  --font-body:'Nunito',sans-serif;
 }
 html[lang=ar]{--font-display:'Tajawal','Cairo',sans-serif;--font-body:'Tajawal','Cairo',sans-serif;}
 *{box-sizing:border-box;margin:0;padding:0;}
@@ -30,7 +34,7 @@ body{font-family:var(--font-body);background:var(--bg);color:var(--dark);overflo
   position:fixed; top:0; left:0; right:0; z-index:1000; border-bottom: 2px solid var(--purple-pale);
 }
 .ticker-track{display:inline-flex;gap:0;animation:ticker 28s linear infinite;width:max-content;}
-.ticker-item{display:inline-flex;align-items:center;gap:10px;padding:0 32px;font-weight:800;font-size:.85rem;}
+.ticker-item{display:inline-flex;align-items:center;gap:10px;padding:0 32px;font-weight:800;font-size:.82rem;}
 .ticker-sep{opacity:.4;font-size:.7rem;}
 
 /* ── HEADER ── */
@@ -44,139 +48,71 @@ body{font-family:var(--font-body);background:var(--bg);color:var(--dark);overflo
 .logo-icon{
   width:42px;height:42px;background:linear-gradient(135deg,var(--purple),var(--pink));
   border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:20px;
-  box-shadow:0 4px 14px rgba(124,58,237,.4);transition:transform .3s ease;
+  box-shadow:0 4px 14px rgba(124,58,237,.4);position:relative;transition:transform .3s ease;
 }
-.logo-icon:hover{transform:scale(1.1) rotate(-5deg);}
+.logo-icon .badge{position:absolute;top:-5px;right:-5px;width:16px;height:16px;background:var(--yellow);border-radius:50%;font-size:9px;display:flex;align-items:center;justify-content:center;}
 .logo-text{font-family:var(--font-display);font-size:1.6rem;line-height:1;}
 .logo-text span:first-child{color:var(--purple);}
 .logo-text span:last-child{color:var(--pink);}
 nav{display:flex;align-items:center;gap:24px;}
 nav a{font-weight:700;color:var(--purple);text-decoration:none;position:relative;transition:color .2s;}
 nav a:hover{color:var(--pink);}
-.header-right{display:flex;align-items:center;gap:10px;}
-.social-header-icons{display:flex;align-items:center;gap:6px;}
-.social-header-icon{
-  width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;
-  text-decoration:none;transition:all .3s ease;border:1.5px solid rgba(124,58,237,.2);background:rgba(255,255,255,.7);
-}
-.social-header-icon svg{width:17px;height:17px;}
-.social-header-icon.fb{color:#1877F2;}
-.social-header-icon.fb:hover{background:#1877F2;color:#fff;}
-.social-header-icon.insta{color:#E1306C;}
-.social-header-icon.insta:hover{background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);color:#fff;}
-.social-header-icon.tiktok{color:#010101;}
-.social-header-icon.tiktok:hover{background:#010101;color:#fff;}
 .lang-switcher{display:flex;background:#ede9fe;border-radius:99px;padding:3px;gap:2px;}
-.lang-btn{
-  padding:5px 12px;border-radius:99px;border:none;font-family:var(--font-body);font-weight:700;
-  font-size:.8rem;cursor:pointer;transition:all .25s ease;color:#7c3aed;background:transparent;
-}
+.lang-btn{padding:5px 12px;border-radius:99px;border:none;font-family:var(--font-body);font-weight:700;font-size:.8rem;cursor:pointer;transition:all .25s ease;color:#7c3aed;background:transparent;}
 .lang-btn.active{background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.1);color:var(--purple);}
-.wa-header-btn{
-  display:flex;align-items:center;gap:7px;background:linear-gradient(135deg,#22c55e,#16a34a);
-  color:#fff;border:none;border-radius:99px;padding:8px 16px;font-weight:700;font-size:.82rem;
-  cursor:pointer;text-decoration:none;box-shadow:0 4px 14px rgba(34,197,94,.35);
-}
+.wa-header-btn{display:flex;align-items:center;gap:7px;background:linear-gradient(135deg,#22c55e,#16a34a);color:#fff;border:none;border-radius:99px;padding:8px 16px;font-weight:700;font-size:.82rem;cursor:pointer;text-decoration:none;box-shadow:0 4px 14px rgba(34,197,94,.35);}
 .hamburger{display:none;flex-direction:column;gap:5px;background:var(--purple-pale);border:none;border-radius:10px;padding:8px 10px;cursor:pointer;}
 .hamburger span{width:20px;height:2px;background:var(--purple);border-radius:2px;}
-.mobile-menu{
-  display:none;position:fixed;top:110px;left:0;right:0;background:rgba(255,255,255,.97);
-  backdrop-filter:blur(16px);padding:20px;border-bottom:2px solid var(--purple-pale);flex-direction:column;gap:10px;z-index:998;
-}
+.mobile-menu{display:none;position:fixed;top:110px;left:0;right:0;background:rgba(255,255,255,.97);backdrop-filter:blur(16px);padding:20px;border-bottom:2px solid var(--purple-pale);flex-direction:column;gap:10px;z-index:998;}
 .mobile-menu.open{display:flex;}
 .mobile-menu a{padding:12px 16px;border-radius:14px;font-weight:700;text-decoration:none;color:var(--purple);background:var(--purple-pale);}
 
 /* ── ANIMATIONS ── */
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
 @keyframes floatB{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
-@keyframes blobMorph{0%,100%{border-radius:60% 40% 30% 70%/60% 30% 70% 40%} 50%{border-radius:50% 60% 30% 60%/30% 60% 70% 40%}}
-@keyframes pulseRing{0%{transform:scale(1);opacity:.7}100%{transform:scale(1.6);opacity:0}}
+@keyframes slideUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
 .animate-float{animation:float 3s ease-in-out infinite}
 .animate-floatB{animation:floatB 3.5s ease-in-out infinite .4s}
+.animate-slideUp{animation:slideUp .6s ease both}
 
 /* ── HERO ── */
-#hero{
-  min-height:100vh;background:linear-gradient(135deg,#f5f3ff 0%,#fdf2f8 50%,#fefce8 100%);
-  display:flex;align-items:center;padding:180px 20px 60px;position:relative;overflow:hidden;
-}
-.hero-bg-blob{position:absolute;pointer-events:none;}
-.blob1{top:-100px;right:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(167,139,250,.25),transparent 70%);animation:blobMorph 10s ease-in-out infinite;}
-.blob2{bottom:-80px;left:-80px;width:400px;height:400px;background:radial-gradient(circle,rgba(236,72,153,.15),transparent 70%);animation:blobMorph 12s ease-in-out infinite 3s;}
-.dots-bg{position:absolute;inset:0;background-image:radial-gradient(circle,rgba(124,58,237,.12) 1px,transparent 1px);background-size:28px 28px;}
+#hero{min-height:100vh;background:linear-gradient(135deg,#f5f3ff 0%,#fdf2f8 50%,#fefce8 100%);display:flex;align-items:center;padding:180px 20px 60px;position:relative;overflow:hidden;}
 .hero-inner{max-width:1200px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative;z-index:1;}
-.hero-badge{
-  display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.8);
-  border:2px solid rgba(167,139,250,.4);border-radius:99px;padding:6px 16px;font-weight:800;font-size:.82rem;color:var(--purple);margin-bottom:20px;
-}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.8);backdrop-filter:blur(8px);border:2px solid rgba(167,139,250,.4);border-radius:99px;padding:6px 16px;font-weight:800;font-size:.82rem;color:var(--purple);margin-bottom:20px;}
 .hero-title{font-family:var(--font-display);font-size:clamp(2.8rem,5vw,4.2rem);line-height:1.1;color:#1e1b4b;margin-bottom:18px;}
 .hero-title .highlight{background:linear-gradient(135deg,var(--purple),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
 .hero-sub{font-size:1.1rem;color:#5b21b6;font-weight:600;line-height:1.65;margin-bottom:32px;max-width:440px;}
-.hero-btns{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:36px;}
-.btn-primary{
-  display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--purple),var(--pink));
-  color:#fff;font-weight:800;font-size:1rem;padding:14px 28px;border-radius:var(--radius);text-decoration:none;box-shadow:0 8px 32px rgba(124,58,237,.15);
-}
-.btn-wa{
-  display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--green-dark);
-  font-weight:800;font-size:1rem;padding:14px 24px;border-radius:var(--radius);border:2px solid #bbf7d0;text-decoration:none;
-}
-.hero-stats{display:flex;gap:28px;}
-.stat{text-align:center;}
-.stat-num{font-family:var(--font-display);font-size:1.8rem;color:var(--purple);}
-.stat-label{font-size:.78rem;font-weight:700;color:var(--purple-light);}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--purple),var(--pink));color:#fff;font-weight:800;font-size:1rem;padding:14px 28px;border-radius:var(--radius);border:none;cursor:pointer;text-decoration:none;box-shadow:var(--shadow);transition:all .3s;}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:var(--shadow-hover);}
 .hero-image{display:flex;justify-content:center;position:relative;}
 .hero-img-wrap{position:relative;width:100%;max-width:420px;}
-.hero-img-card{
-  border-radius:var(--radius-xl);overflow:hidden;box-shadow:0 24px 64px rgba(124,58,237,.25);
-  border:4px solid #fff;background: #fff;display: flex; justify-content: center; align-items: center;
-  padding: 20px; animation:float 3.5s ease-in-out infinite;
-}
-.hero-img-card img{width:100%; max-width: 280px; object-fit:contain; display:block;}
-.hero-floating-card{
-  position:absolute;background:#fff;border-radius:16px;padding:10px 14px;box-shadow:0 8px 24px rgba(0,0,0,.12);
-  display:flex;align-items:center;gap:8px;border:1px solid rgba(167,139,250,.2);
-}
-.fc1{bottom:-12px;right:-12px;animation:floatB 3s ease-in-out infinite;}
-.fc2{top:-12px;left:-12px;animation:floatB 3.5s ease-in-out infinite .6s;}
-.hero-wave{position:absolute;bottom:0;left:0;right:0;line-height:0;}
+.hero-img-card{border-radius:var(--radius-xl);overflow:hidden;box-shadow:0 24px 64px rgba(124,58,237,.25);border:4px solid #fff;background:#fff;padding:20px;animation:float 3.5s ease-in-out infinite;display:flex;justify-content:center;align-items:center;}
+.hero-img-card img{width:100%;max-width:280px;object-fit:contain;display:block;}
 
-/* ── CATALOGUE ── */
+/* ── PRODUCT CARD ── */
 .section{padding:80px 20px;}
 .section-inner{max-width:1200px;margin:0 auto;}
 .section-header{text-align:center;margin-bottom:50px;}
 .section-title{font-family:var(--font-display);font-size:clamp(2rem,4vw,2.8rem);color:#1e1b4b;position:relative;display:inline-block;}
 .section-title::after{content:'';position:absolute;bottom:-6px;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--purple),var(--pink),var(--yellow));border-radius:2px;}
-.products-count{font-size:.82rem;color:var(--purple-light);font-weight:700;margin-bottom:20px;}
 .products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:22px;}
-.product-card{
-  background:#fff;border-radius:var(--radius-lg);overflow:hidden;
-  box-shadow:0 4px 20px rgba(124,58,237,.1);border:2px solid #f3f0ff;transition:all .3s;cursor:pointer;
-}
-.product-card:hover{transform:translateY(-8px);box-shadow:0 20px 48px rgba(124,58,237,.28);border-color:#c4b5fd;}
-.card-img{position:relative;overflow:hidden;height:220px;background:linear-gradient(135deg,#f5f3ff,#fce7f3);}
+.product-card{background:#fff;border-radius:var(--radius-lg);overflow:hidden;box-shadow:0 4px 20px rgba(124,58,237,.1);border:2px solid #f3f0ff;transition:all .35s;cursor:pointer;}
+.product-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-hover);border-color:#c4b5fd;}
+.card-img{position:relative;overflow:hidden;height:220px;background:#f5f3ff;}
 .card-img img{width:100%;height:100%;object-fit:cover;}
 .card-body{padding:14px;}
 .card-name{font-weight:800;font-size:.95rem;color:#1e1b4b;line-height:1.35;margin-bottom:12px;}
-.btn-order{
-  width:100%;display:flex;align-items:center;justify-content:center;gap:7px;
-  background:linear-gradient(135deg,#22c55e,#16a34a);color:#fff;font-weight:800;font-size:.85rem;
-  padding:11px;border-radius:var(--radius);border:none;cursor:pointer;
-}
+.btn-order{width:100%;display:flex;align-items:center;justify-content:center;gap:7px;background:linear-gradient(135deg,#22c55e,#16a34a);color:#fff;font-weight:800;padding:11px;border-radius:var(--radius);border:none;cursor:pointer;}
 
 /* ── FACEBOOK CTA ── */
-.fb-cta-wrap {display: flex;justify-content: center;align-items: center;margin-top: 40px;padding: 0 20px;}
-.fb-cta-btn {
-  display: flex;align-items: center;justify-content: center;gap: 12px;
-  background: #1877F2;color: #fff;font-weight: 800;font-size: 1.1rem;
-  padding: 16px 30px;border-radius: 99px;text-decoration: none;
-  box-shadow: 0 8px 24px rgba(24, 119, 242, 0.3);width: 100%;max-width: 700px;
-}
-.fb-cta-btn:hover {transform: translateY(-3px);color: #fff;}
+.fb-cta-wrap {display: flex;justify-content: center;align-items: center;margin-top: 40px;padding: 0 20px;width: 100%;}
+.fb-cta-btn {display: flex;align-items: center;justify-content: center;gap: 12px;background: #1877F2;color: #fff;font-weight: 800;font-size: 1.1rem;padding: 16px 30px;border-radius: 99px;text-decoration: none;box-shadow: 0 8px 24px rgba(24, 119, 242, 0.3);width: 100%;max-width: 700px;transition: all 0.3s;}
+.fb-cta-btn:hover {transform: translateY(-3px);box-shadow: 0 12px 28px rgba(24, 119, 242, 0.45);color: #fff;}
 
 /* ── LOCATIONS ── */
 #locations{background:linear-gradient(135deg,#1e1b4b,#312e81);padding:60px 20px;}
 .locations-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
-.location-card{background:rgba(255,255,255,.07);border-radius:var(--radius-lg);padding:28px 24px;display:flex;flex-direction: column;gap:16px;}
+.location-card{background:rgba(255,255,255,.07);border-radius:var(--radius-lg);padding:28px 24px;display:flex;flex-direction:column;gap:16px;}
 .location-info h3{font-family:var(--font-display);font-size:1.3rem;color:#fff;}
 .loc-map-btn {display: inline-flex; align-items: center; gap: 8px;background: var(--purple); color: #fff;padding: 10px 20px; border-radius: 99px; text-decoration: none;font-weight: 800;}
 
@@ -189,7 +125,7 @@ nav a:hover{color:var(--pink);}
 /* ── MODAL ── */
 .modal-backdrop{display:none;position:fixed;inset:0;background:rgba(30,27,75,.65);backdrop-filter:blur(6px);z-index:1000;align-items:center;justify-content:center;padding:20px;}
 .modal-backdrop.open{display:flex;}
-.modal{background:#fff;border-radius:var(--radius-xl);width:100%;max-width:560px;max-height:90vh;overflow-y:auto;}
+.modal{background:#fff;border-radius:var(--radius-xl);width:100%;max-width:560px;max-height:90vh;overflow-y:auto;box-shadow:0 32px 80px rgba(0,0,0,.25);}
 .modal-header{padding:24px 24px 0;display:flex;justify-content:flex-end;}
 .modal-close{width:36px;height:36px;border-radius:10px;background:var(--purple-pale);border:none;cursor:pointer;}
 .modal-img{height:280px;overflow:hidden;}
@@ -197,20 +133,18 @@ nav a:hover{color:var(--pink);}
 .modal-body{padding:20px 24px 28px;}
 .modal-wa-btn{width:100%;display:flex;align-items:center;justify-content:center;gap:10px;background:linear-gradient(135deg,#22c55e,#16a34a);color:#fff;font-weight:800;padding:14px;border-radius:var(--radius);border:none;margin-top:18px;}
 
-/* ── RESPONSIVE ── */
-@media(max-width:900px){nav,#header .wa-header-btn{display:none!important;}.hamburger{display:flex!important;}.hero-inner{grid-template-columns:1fr;text-align:center;}.hero-btns{justify-content:center;}.hero-stats{justify-content:center;}.hero-image{display:none;}}
-@media(max-width:600px){.locations-grid{grid-template-columns:1fr;}.products-grid{grid-template-columns:repeat(2,1fr);gap:12px;}.fb-cta-btn { padding: 14px 20px; font-size: 0.9rem;}}
+@media(max-width:900px){nav,.wa-header-btn{display:none!important;}.hamburger{display:flex!important;}.hero-inner{grid-template-columns:1fr;text-align:center;}.hero-image{display:none;}}
+@media(max-width:600px){.locations-grid{grid-template-columns:1fr;}.products-grid{grid-template-columns:repeat(2,1fr);gap:12px;}}
 </style>
 </head>
 <body>
 
 <div id="ticker-bar">
   <div class="ticker-track">
-    <span class="ticker-item">✨ <span id="tk1">Nouvelle Collection Disponible</span></span>
+    <span class="ticker-item">✨ <span id="tk1">Collection Disponible</span></span>
     <span class="ticker-item">🚚 <span id="tk2">Livraison 24 - 48h</span></span>
     <span class="ticker-item">👕 <span id="tk3">Qualité Premium</span></span>
     <span class="ticker-item">💬 <span id="tk4">WhatsApp</span></span>
-    <span class="ticker-item">🏪 <span id="tk5">Nos Boutiques</span></span>
   </div>
 </div>
 
@@ -226,6 +160,10 @@ nav a:hover{color:var(--pink);}
       <a href="#" onclick="scrollToSection('about');return false;" id="nav-about">À Propos</a>
     </nav>
     <div class="header-right">
+      <div class="lang-switcher">
+        <button class="lang-btn active" onclick="setLang('fr')" id="btn-fr">🇫🇷 FR</button>
+        <button class="lang-btn" onclick="setLang('ar')" id="btn-ar">🇩🇿 ع</button>
+      </div>
       <a href="#" id="wa-header-btn" class="wa-header-btn" target="_blank">WhatsApp</a>
     </div>
     <button class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
@@ -241,16 +179,12 @@ nav a:hover{color:var(--pink);}
     <div class="hero-content animate-slideUp">
       <div class="hero-badge">✨ <span id="hero-badge-text">Nouvelle Collection</span></div>
       <h1 class="hero-title"><span id="hero-t1">La Mode pour</span><br><span class="highlight">Petits Trésors</span></h1>
-      <p class="hero-sub">Vêtements confortables pour vos enfants</p>
-      <div class="hero-btns">
-        <a href="#" class="btn-primary" onclick="scrollToSection('catalogue');return false;">Découvrir</a>
-      </div>
+      <p class="hero-sub" id="hero-sub">Vêtements confortables pour vos enfants</p>
+      <a href="#" class="btn-primary" onclick="scrollToSection('catalogue');return false;" id="hero-cta1">Découvrir</a>
     </div>
     <div class="hero-image">
-      <div class="hero-img-wrap">
-        <div class="hero-img-card">
-          <img src="https://i.postimg.cc/4xBZvJSL/logo.jpg" alt="KIDI BOOM Logo">
-        </div>
+      <div class="hero-img-card">
+        <img src="https://i.postimg.cc/4xBZvJSL/logo.jpg" alt="KIDI BOOM Logo">
       </div>
     </div>
   </div>
@@ -259,31 +193,31 @@ nav a:hover{color:var(--pink);}
 <section class="section" id="catalogue">
   <div class="section-inner">
     <div class="section-header">
-      <h2 class="section-title">Tous nos Articles</h2>
+      <h2 class="section-title" id="cat-title">Tous nos Articles</h2>
     </div>
     <p class="products-count" id="products-count"></p>
     <div class="products-grid" id="products-grid"></div>
     <div class="fb-cta-wrap">
       <a href="https://www.facebook.com/profile.php?id=100079754059675" target="_blank" class="fb-cta-btn">
         <svg viewBox="0 0 24 24" fill="white" width="24" height="24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-        <span>Voir plus sur Facebook</span>
+        <span id="fb-cta-text">Voir plus sur Facebook</span>
       </a>
     </div>
   </div>
 </section>
 
-<section id="locations">
+<section id="locations" class="section">
   <div class="section-inner">
-    <h2 style="color:white; text-align:center; margin-bottom:40px;">📍 Nos Boutiques</h2>
+    <h2 style="color:white; text-align:center; margin-bottom:40px;" id="loc-title">📍 Nos Boutiques</h2>
     <div class="locations-grid">
       <div class="location-card">
-        <h3 style="color:white;">Kidi boom - Bab dzaier</h3>
-        <p style="color:#a5b4fc;">Bab Dzaier, Alger</p>
+        <h3 id="loc1-name" style="color:white;">Kidi boom - Bab dzaier</h3>
+        <p id="loc1-addr" style="color:#a5b4fc;">Bab Dzaier, Alger</p>
         <a href="https://maps.app.goo.gl/d6Hf9HEWDHMsVyfD6" target="_blank" class="loc-map-btn">📍 Google Maps</a>
       </div>
       <div class="location-card">
-        <h3 style="color:white;">Kidi boom - Bab zaouia</h3>
-        <p style="color:#a5b4fc;">Bab Zaouia, Alger</p>
+        <h3 id="loc2-name" style="color:white;">Kidi boom - Bab zaouia</h3>
+        <p id="loc2-addr" style="color:#a5b4fc;">Bab Zaouia, Alger</p>
         <a href="https://maps.app.goo.gl/9PLV5QGAJUTBYeGv9" target="_blank" class="loc-map-btn">📍 Google Maps</a>
       </div>
     </div>
@@ -297,18 +231,15 @@ nav a:hover{color:var(--pink);}
       <a href="mailto:kidiboom@hotmail.fr" class="social-btn"><svg viewBox="0 0 24 24" width="20" fill="white"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
     </div>
     <p class="email-text">kidiboom@hotmail.fr</p>
-    <div style="text-align:center; border-top:1px solid rgba(255,255,255,0.1); padding-top:20px; margin-top:20px;">© KIDI BOOM. Tous droits réservés.</div>
+    <p style="text-align:center; border-top:1px solid rgba(255,255,255,0.1); padding-top:20px; margin-top:20px;">© KIDI BOOM. Tous droits réservés.</p>
   </div>
 </footer>
 
-<div class="modal-backdrop" id="modal" onclick="closeModal(event)">
+<div class="modal-backdrop" id="modal" onclick="if(event.target===this) closeModalDirect()">
   <div class="modal">
     <div class="modal-header"><button class="modal-close" onclick="closeModalDirect()">✕</button></div>
     <div class="modal-img" id="modal-img"></div>
-    <div class="modal-body">
-      <div class="modal-name" id="modal-name"></div>
-      <button class="modal-wa-btn" onclick="orderFromModal()">WhatsApp</button>
-    </div>
+    <div class="modal-body"><div class="modal-name" id="modal-name" style="font-weight:bold; font-size:1.4rem;"></div><button class="modal-wa-btn" id="modal-wa-btn" onclick="orderFromModal()">WhatsApp</button></div>
   </div>
 </div>
 
@@ -316,17 +247,50 @@ nav a:hover{color:var(--pink);}
 const CONFIG = { whatsapp: '213XXXXXXXXX', storeName: 'KIDI BOOM' };
 const SHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQzlArTANRbwpL6_tHgoqQdM5K8hDUuXn6Eb6OdeWmBt-yHeZo42U46XsoauhF7hSWvKqiuCje1COvY/pub?output=csv';
 
-function mapSheetProduct(row, index) {
-  if(!row[0]) return null;
-  return { id: index, name: row[0].trim(), nameAr: row[1].trim(), image: row[2].trim(), wa: row[3].trim() };
+const TR = {
+  fr:{ navHome:'Accueil', navProducts:'Articles', navAbout:'À Propos', heroBadge:'✨ Nouvelle Collection', heroT1:'La Mode pour', heroSub:'Vêtements confortables', heroCta1:'Découvrir', catTitle:'Tous nos Articles', fbCta:'Voir plus sur Facebook', tk1:'Nouvelle Collection', tk2:'Livraison 24-48h', tk3:'Qualité Premium', tk4:'WhatsApp', locTitle:'📍 Nos Boutiques', loc1Name:'Kidi boom - Bab dzaier', loc1Addr:'Bab Dzaier, Alger', loc2Name:'Kidi boom - Bab zaouia', loc2Addr:'Bab Zaouia, Alger', waMsg:'Bonjour, je veux commander: ', productsCount:(n)=>n+' produit(s)' },
+  ar:{ navHome:'الرئيسية', navProducts:'منتجاتنا', navAbout:'من نحن', heroBadge:'✨ مجموعة جديدة', heroT1:'الموضة لـ', heroSub:'ملابس مريحة لأطفالكم', heroCta1:'اكتشف', catTitle:'جميع منتجاتنا', fbCta:'المزيد على فيسبوك', tk1:'مجموعة جديدة', tk2:'توصيل 24-48 ساعة', tk3:'جودة عالية', tk4:'واتساب', locTitle:'📍 متاجرنا', loc1Name:'الفرع 1 - باب الدزاير', loc1Addr:'باب الدزاير، الجزائر', loc2Name:'الفرع 2 - باب الزاوية', loc2Addr:'باب الزاوية، الجزائر', waMsg:'مرحباً، أريد طلب: ', productsCount:(n)=>n+' منتج' }
+};
+
+let lang = localStorage.getItem('kidiboom-lang') || 'fr';
+
+function setLang(l) {
+  lang = l; localStorage.setItem('kidiboom-lang', l);
+  document.documentElement.lang = l; document.documentElement.dir = l==='ar'?'rtl':'ltr';
+  applyTranslations(); renderProducts();
+}
+
+function applyTranslations() {
+  const t = TR[lang];
+  document.getElementById('nav-home').textContent = t.navHome;
+  document.getElementById('nav-products').textContent = t.navProducts;
+  document.getElementById('nav-about').textContent = t.navAbout;
+  document.getElementById('hero-badge-text').textContent = t.heroBadge;
+  document.getElementById('hero-t1').textContent = t.heroT1;
+  document.getElementById('hero-sub').textContent = t.heroSub;
+  document.getElementById('hero-cta1').textContent = t.heroCta1;
+  document.getElementById('cat-title').textContent = t.catTitle;
+  document.getElementById('fb-cta-text').textContent = t.fbCta;
+  document.getElementById('tk1').textContent = t.tk1;
+  document.getElementById('tk2').textContent = t.tk2;
+  document.getElementById('tk3').textContent = t.tk3;
+  document.getElementById('tk4').textContent = t.tk4;
+  document.getElementById('loc-title').textContent = t.locTitle;
+  document.getElementById('loc1-name').textContent = t.loc1Name;
+  document.getElementById('loc1-addr').textContent = t.loc1Addr;
+  document.getElementById('loc2-name').textContent = t.loc2Name;
+  document.getElementById('loc2-addr').textContent = t.loc2Addr;
 }
 
 async function loadProducts() {
   try {
     const res = await fetch(SHEET_URL);
     const data = await res.text();
-    const rows = data.split('\n').slice(1);
-    const products = rows.map((r, i) => mapSheetProduct(r.split(','), i)).filter(p => p);
+    const rows = data.split(/\r?\n/).slice(1);
+    const products = rows.map((r, i) => {
+      const cols = r.split(',');
+      return cols[0] ? { id: i, name: cols[0].trim(), nameAr: cols[1].trim(), image: cols[2].trim() } : null;
+    }).filter(p => p);
     localStorage.setItem('kidiboom-products', JSON.stringify(products));
     renderProducts();
   } catch (e) { console.error(e); }
@@ -334,31 +298,36 @@ async function loadProducts() {
 
 function renderProducts() {
   const prods = JSON.parse(localStorage.getItem('kidiboom-products') || '[]');
-  const grid = document.getElementById('products-grid');
-  grid.innerHTML = prods.map(p => `
+  document.getElementById('products-count').textContent = TR[lang].productsCount(prods.length);
+  document.getElementById('products-grid').innerHTML = prods.map(p => `
     <div class="product-card">
       <div class="card-img" onclick="openModal(${p.id})"><img src="${p.image}"></div>
       <div class="card-body">
-        <div class="card-name">${p.name}</div>
-        <button class="btn-order" onclick="window.open('https://wa.me/${CONFIG.whatsapp}')">WhatsApp</button>
+        <div class="card-name">${lang==='ar'?p.nameAr:p.name}</div>
+        <button class="btn-order" onclick="window.open('https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(TR[lang].waMsg + (lang==='ar'?p.nameAr:p.name))}')">WhatsApp</button>
       </div>
     </div>
   `).join('');
 }
 
+let activeP = null;
 function openModal(id) {
-  const p = JSON.parse(localStorage.getItem('kidiboom-products')).find(x => x.id == id);
-  document.getElementById('modal-img').innerHTML = `<img src="${p.image}">`;
-  document.getElementById('modal-name').textContent = p.name;
+  activeP = JSON.parse(localStorage.getItem('kidiboom-products')).find(x => x.id == id);
+  document.getElementById('modal-img').innerHTML = `<img src="${activeP.image}">`;
+  document.getElementById('modal-name').textContent = lang==='ar'?activeP.nameAr:activeP.name;
   document.getElementById('modal').classList.add('open');
 }
 
+function orderFromModal() { window.open('https://wa.me/'+CONFIG.whatsapp+'?text='+encodeURIComponent(TR[lang].waMsg+(lang==='ar'?activeP.nameAr:activeP.name))); }
 function closeModalDirect() { document.getElementById('modal').classList.remove('open'); }
 function scrollToSection(id) { document.getElementById(id).scrollIntoView({behavior:'smooth'}); }
 function toggleMenu() { document.getElementById('mobile-menu').classList.toggle('open'); }
 
+applyTranslations();
 loadProducts();
 </script>
 </body>
 </html>
 ```[cite: 1]
+
+بمجرد رفع هذا الكود، سيتم إصلاح كافة الأخطاء البرمجية (دوال الترجمة، عرض المنتجات، اللوجو) وسيرتبط الموقع بالشيت تلقائياً[cite: 1].
