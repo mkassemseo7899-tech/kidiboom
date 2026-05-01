@@ -14,10 +14,6 @@
   --green:#22C55E;--green-dark:#16A34A;
   --bg:#FAF5FF;--white:#fff;--dark:#1E1B4B;
   --radius:18px;--radius-lg:28px;--radius-xl:40px;
-  --shadow:0 8px 32px rgba(124,58,237,.15);
-  --shadow-hover:0 20px 48px rgba(124,58,237,.28);
-  --font-display:'Fredoka One',cursive;
-  --font-body:'Nunito',sans-serif;
 }
 html[lang=ar]{--font-display:'Tajawal','Cairo',sans-serif;--font-body:'Tajawal','Cairo',sans-serif;}
 *{box-sizing:border-box;margin:0;padding:0;}
@@ -28,1241 +24,340 @@ body{font-family:var(--font-body);background:var(--bg);color:var(--dark);overflo
 ::-webkit-scrollbar-thumb{background:var(--purple-light);border-radius:99px;}
 
 /* ── TICKER ── */
-@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 #ticker-bar{
-  background:#ffffff;
-  color:var(--dark);
-  padding:10px 0;overflow:hidden;white-space:nowrap;
-  position:fixed; top:0; left:0; right:0; z-index:1000;
-  border-bottom: 2px solid var(--purple-pale);
+  background:#ffffff; color:#1e1b4b; padding:10px 0; overflow:hidden; white-space:nowrap;
+  position:fixed; top:0; left:0; right:0; z-index:1000; border-bottom: 2px solid var(--purple-pale);
 }
-.ticker-track{
-  display:inline-flex;gap:0;
-  animation:ticker 28s linear infinite;
-  width:max-content;
-}
-.ticker-item{
-  display:inline-flex;align-items:center;gap:10px;
-  padding:0 32px;font-weight:800;font-size:.85rem;letter-spacing:.02em;
-}
-.ticker-sep{opacity:.3;font-size:.7rem;}
+.ticker-track{display:inline-flex;gap:40px;animation:ticker 28s linear infinite;width:max-content;}
+@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.ticker-item{font-weight:800;font-size:.82rem;}
 
 /* ── HEADER ── */
 #header{
-  position:fixed;top:42px;
-  left:0;right:0;z-index:999;
-  padding:12px 0;
-  transition:all .3s ease;
-  background: rgba(255, 255, 255, 0.95);
+  position:fixed; top:40px; left:0; right:0; z-index:999; padding:12px 0;
+  transition:all .3s ease; background:rgba(255,255,255,.92); backdrop-filter:blur(16px);
 }
-#header.scrolled{
-  background:rgba(255,255,255,.95);
-  backdrop-filter:blur(16px);
-  box-shadow:0 4px 24px rgba(124,58,237,.12);
-}
-.header-inner{
-  max-width:1200px;margin:0 auto;padding:0 20px;
-  display:flex;align-items:center;justify-content:space-between;gap:16px;
-}
+.header-inner{max-width:1200px;margin:0 auto;padding:0 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
 .logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
-.logo-icon{
-  width:42px;height:42px;
-  background:linear-gradient(135deg,var(--purple),var(--pink));
-  border-radius:14px;
-  display:flex;align-items:center;justify-content:center;
-  font-size:20px;
-  box-shadow:0 4px 14px rgba(124,58,237,.4);
-  position:relative;
-  transition:transform .3s ease;
-}
-.logo-icon:hover{transform:scale(1.1) rotate(-5deg);}
-.logo-icon .badge{
-  position:absolute;top:-5px;right:-5px;
-  width:16px;height:16px;
-  background:var(--yellow);
-  border-radius:50%;
-  font-size:9px;
-  display:flex;align-items:center;justify-content:center;
-}
+.logo-icon{width:42px;height:42px;background:linear-gradient(135deg,var(--purple),var(--pink));border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:20px;}
 .logo-text{font-family:var(--font-display);font-size:1.6rem;line-height:1;}
 .logo-text span:first-child{color:var(--purple);}
 .logo-text span:last-child{color:var(--pink);}
 nav{display:flex;align-items:center;gap:24px;}
-nav a{
-  font-weight:700;color:var(--purple);text-decoration:none;
-  position:relative;transition:color .2s;
-}
-nav a::after{
-  content:'';position:absolute;bottom:-2px;left:0;right:0;
-  height:2px;background:linear-gradient(90deg,var(--purple),var(--pink));
-  border-radius:99px;transform:scaleX(0);transition:transform .3s ease;
-}
-nav a:hover{color:var(--pink);}
-nav a:hover::after{transform:scaleX(1);}
-.header-right{display:flex;align-items:center;gap:10px;}
-.social-header-icons{display:flex;align-items:center;gap:6px;}
-.social-header-icon{
-  width:34px;height:34px;border-radius:10px;
-  display:flex;align-items:center;justify-content:center;
-  text-decoration:none;transition:all .3s ease;
-  border:1.5px solid rgba(124,58,237,.2);
-  background:rgba(255,255,255,.7);backdrop-filter:blur(4px);
-}
-.social-header-icon svg{width:17px;height:17px;}
-.social-header-icon.fb{color:#1877F2;}
-.social-header-icon.fb:hover{background:#1877F2;border-color:transparent;transform:translateY(-2px) scale(1.08);}
-.social-header-icon.fb:hover svg{fill:#fff;}
-.social-header-icon.insta{color:#E1306C;}
-.social-header-icon.insta:hover{background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);border-color:transparent;transform:translateY(-2px) scale(1.08);}
-.social-header-icon.insta:hover svg{fill:#fff;}
-.social-header-icon.tiktok{color:#010101;}
-.social-header-icon.tiktok:hover{background:#010101;border-color:transparent;transform:translateY(-2px) scale(1.08);}
-.social-header-icon.tiktok:hover svg{fill:#fff;}
-.lang-switcher{
-  display:flex;background:#ede9fe;border-radius:99px;padding:3px;gap:2px;
-}
-.lang-btn{
-  padding:5px 12px;border-radius:99px;border:none;
-  font-family:var(--font-body);font-weight:700;font-size:.8rem;
-  cursor:pointer;transition:all .25s ease;color:#7c3aed;background:transparent;
-}
-.lang-btn.active{background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.1);color:var(--purple);}
-.wa-header-btn{
-  display:flex;align-items:center;gap:7px;
-  background:linear-gradient(135deg,#22c55e,#16a34a);
-  color:#fff;border:none;border-radius:99px;
-  padding:8px 16px;font-weight:700;font-size:.82rem;
-  cursor:pointer;text-decoration:none;
-  box-shadow:0 4px 14px rgba(34,197,94,.35);
-  transition:all .3s ease;
-}
-.wa-header-btn:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(34,197,94,.45);}
-.hamburger{
-  display:none;flex-direction:column;gap:5px;
-  background:var(--purple-pale);border:none;border-radius:10px;
-  padding:8px 10px;cursor:pointer;
-}
-.hamburger span{width:20px;height:2px;background:var(--purple);border-radius:2px;transition:all .3s;}
-.hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}
-.hamburger.open span:nth-child(2){opacity:0;}
-.hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px);}
-.mobile-menu{
-  display:none;position:fixed;top:110px;left:0;right:0;
-  background:rgba(255,255,255,.97);backdrop-filter:blur(16px);
-  padding:20px;border-bottom:2px solid var(--purple-pale);
-  flex-direction:column;gap:10px;z-index:998;
-}
-.mobile-menu.open{display:flex;}
-.mobile-menu a, .mobile-menu button{
-  padding:12px 16px;border-radius:14px;font-weight:700;
-  text-decoration:none;color:var(--purple);
-  background:var(--purple-pale);transition:all .2s;
-  text-align:left;border:none;cursor:pointer;font-family:var(--font-body);
-}
-html[dir=rtl] .mobile-menu a, html[dir=rtl] .mobile-menu button{text-align:right;}
-.mobile-menu a:hover{background:var(--purple);color:#fff;}
-
-/* ── ANIMATIONS ── */
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
-@keyframes floatB{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
-@keyframes spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
-@keyframes slideUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
-@keyframes fadeIn{from{opacity:0}to{opacity:1}}
-@keyframes blobMorph{
-  0%,100%{border-radius:60% 40% 30% 70%/60% 30% 70% 40%}
-  25%{border-radius:30% 60% 70% 40%/50% 60% 30% 60%}
-  50%{border-radius:50% 60% 30% 60%/30% 60% 70% 40%}
-  75%{border-radius:60% 40% 60% 30%/70% 30% 60% 50%}
-}
-@keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
-@keyframes pulseRing{0%{transform:scale(1);opacity:.7}100%{transform:scale(1.6);opacity:0}}
-@keyframes wiggle{0%,100%{transform:rotate(-8deg)}50%{transform:rotate(8deg)}}
-@keyframes bounceIn{0%{transform:scale(.5);opacity:0}60%{transform:scale(1.1)}80%{transform:scale(.95)}100%{transform:scale(1);opacity:1}}
-@keyframes gradientMove{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
-
-.animate-float{animation:float 3s ease-in-out infinite}
-.animate-floatB{animation:floatB 3.5s ease-in-out infinite .4s}
-.animate-spin{animation:spin 12s linear infinite}
-.animate-slideUp{animation:slideUp .6s ease both}
-.animate-wiggle{animation:wiggle .6s ease-in-out infinite}
+nav a{font-weight:700;color:var(--purple);text-decoration:none;}
+.wa-header-btn{display:flex;align-items:center;gap:7px;background:linear-gradient(135deg,#22c55e,#16a34a);color:#fff;border-radius:99px;padding:8px 16px;font-weight:700;text-decoration:none;}
 
 /* ── HERO ── */
-#hero{
-  min-height:100vh;
-  background:linear-gradient(135deg,#f5f3ff 0%,#fdf2f8 50%,#fefce8 100%);
-  display:flex;align-items:center;
-  padding:180px 20px 60px;
-  position:relative;overflow:hidden;
-}
-.hero-bg-blob{position:absolute;pointer-events:none;}
-.blob1{top:-100px;right:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(167,139,250,.25),transparent 70%);animation:blobMorph 10s ease-in-out infinite;}
-.blob2{bottom:-80px;left:-80px;width:400px;height:400px;background:radial-gradient(circle,rgba(236,72,153,.15),transparent 70%);animation:blobMorph 12s ease-in-out infinite 3s;}
-.blob3{top:40%;left:40%;width:300px;height:300px;background:radial-gradient(circle,rgba(252,211,77,.12),transparent 70%);animation:blobMorph 8s ease-in-out infinite 6s;}
-.dots-bg{position:absolute;inset:0;background-image:radial-gradient(circle,rgba(124,58,237,.12) 1px,transparent 1px);background-size:28px 28px;}
-.emoji-deco{position:absolute;pointer-events:none;user-select:none;}
-.hero-inner{
-  max-width:1200px;margin:0 auto;width:100%;
-  display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;
-  position:relative;z-index:1;
-}
-.hero-badge{
-  display:inline-flex;align-items:center;gap:8px;
-  background:rgba(255,255,255,.8);backdrop-filter:blur(8px);
-  border:2px solid rgba(167,139,250,.4);
-  border-radius:99px;padding:6px 16px;
-  font-weight:800;font-size:.82rem;color:var(--purple);
-  margin-bottom:20px;
-}
-.hero-title{font-family:var(--font-display);font-size:clamp(2.8rem,5vw,4.2rem);line-height:1.1;color:#1e1b4b;margin-bottom:18px;}
-.hero-title .highlight{background:linear-gradient(135deg,var(--purple),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-.hero-sub{font-size:1.1rem;color:#5b21b6;font-weight:600;line-height:1.65;margin-bottom:32px;max-width:440px;}
-.hero-btns{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:36px;}
-.btn-primary{
-  display:inline-flex;align-items:center;gap:8px;
-  background:linear-gradient(135deg,var(--purple),var(--pink));
-  color:#fff;font-weight:800;font-size:1rem;
-  padding:14px 28px;border-radius:var(--radius);border:none;cursor:pointer;
-  text-decoration:none;
-  box-shadow:var(--shadow);
-  transition:all .3s cubic-bezier(.34,1.56,.64,1);
-}
-.btn-primary:hover{transform:translateY(-3px) scale(1.03);box-shadow:var(--shadow-hover);}
-.btn-wa{
-  display:inline-flex;align-items:center;gap:8px;
-  background:#fff;color:var(--green-dark);
-  font-weight:800;font-size:1rem;
-  padding:14px 24px;border-radius:var(--radius);
-  border:2px solid #bbf7d0;cursor:pointer;text-decoration:none;
-  box-shadow:0 4px 16px rgba(34,197,94,.15);
-  transition:all .3s ease;
-}
-.btn-wa:hover{background:#f0fdf4;transform:translateY(-2px);box-shadow:0 8px 24px rgba(34,197,94,.25);}
-.hero-stats{display:flex;gap:28px;}
-.stat{text-align:center;}
-.stat-num{font-family:var(--font-display);font-size:1.8rem;color:var(--purple);}
-.stat-label{font-size:.78rem;font-weight:700;color:var(--purple-light);}
-.hero-image{display:flex;justify-content:center;position:relative;}
-.hero-img-wrap{position:relative;width:100%;max-width:420px;}
-.hero-img-card{
-  border-radius:var(--radius-xl);overflow:hidden;
-  box-shadow:0 24px 64px rgba(124,58,237,.25);
-  border:4px solid #fff;
-  background: #fff;
-  display: flex; justify-content: center; align-items: center;
-  padding: 20px;
-  animation:float 3.5s ease-in-out infinite;
-}
-.hero-img-card img{width:100%; max-width: 250px; object-fit:contain; display:block;}
-.hero-floating-card{
-  position:absolute;background:#fff;border-radius:16px;
-  padding:10px 14px;box-shadow:0 8px 24px rgba(0,0,0,.12);
-  display:flex;align-items:center;gap:8px;
-  border:1px solid rgba(167,139,250,.2);
-}
-.hero-floating-card .fc-emoji{font-size:1.4rem;}
-.hero-floating-card .fc-text p:first-child{font-weight:800;font-size:.75rem;color:#1e1b4b;}
-.hero-floating-card .fc-text p:last-child{font-size:.7rem;font-weight:700;}
-.fc1{bottom:-12px;right:-12px;animation:floatB 3s ease-in-out infinite;}
-.fc1 .fc-text p:last-child{color:var(--green);}
-.fc2{top:-12px;left:-12px;animation:floatB 3.5s ease-in-out infinite .6s;}
-.fc2 .fc-text p:last-child{color:var(--pink);}
-.hero-wave{position:absolute;bottom:0;left:0;right:0;line-height:0;}
+#hero{min-height:100vh;background:linear-gradient(135deg,#f5f3ff 0%,#fdf2f8 50%,#fefce8 100%);display:flex;align-items:center;padding:180px 20px 60px;position:relative;overflow:hidden;}
+.hero-inner{max-width:1200px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative;z-index:1;}
+.hero-title{font-family:var(--font-display);font-size:clamp(2.5rem,5vw,4rem);line-height:1.1;color:#1e1b4b;margin-bottom:18px;}
+.highlight{background:linear-gradient(135deg,var(--purple),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--purple),var(--pink));color:#fff;font-weight:800;padding:14px 28px;border-radius:var(--radius);text-decoration:none;}
+.hero-img-card{border-radius:var(--radius-xl);overflow:hidden;box-shadow:0 24px 64px rgba(124,58,237,.25);border:4px solid #fff;background:#fff;padding:20px;}
+.hero-img-card img{width:100%;max-width:280px;object-fit:contain;display:block;}
 
-/* ── FEATURES BAR ── */
-#features-bar{background:#fff;padding:20px 0;box-shadow:0 4px 20px rgba(124,58,237,.07);}
-.features-inner{max-width:1200px;margin:0 auto;padding:0 20px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
-.feature-item{display:flex;align-items:center;gap:10px;}
-.feature-item .fi-icon{font-size:1.6rem;}
-.feature-item .fi-text p:first-child{font-weight:800;font-size:.82rem;color:#1e1b4b;}
-.feature-item .fi-text p:last-child{font-size:.72rem;color:var(--purple-light);font-weight:600;}
-
-/* ── SECTIONS ── */
+/* ── CATALOGUE ── */
 .section{padding:80px 20px;}
-.section-inner{max-width:1200px;margin:0 auto;}
-.section-header{text-align:center;margin-bottom:50px;}
-.section-chip{
-  display:inline-flex;align-items:center;gap:6px;
-  background:var(--purple-pale);color:var(--purple);
-  border-radius:99px;padding:5px 16px;
-  font-weight:800;font-size:.78rem;
-  margin-bottom:14px;
-}
-.section-title{
-  font-family:var(--font-display);
-  font-size:clamp(2rem,4vw,2.8rem);
-  color:#1e1b4b;
-  position:relative;display:inline-block;
-}
-.section-title::after{
-  content:'';position:absolute;
-  bottom:-6px;left:0;right:0;height:4px;
-  background:linear-gradient(90deg,var(--purple),var(--pink),var(--yellow));
-  border-radius:2px;
-}
-.section-sub{margin-top:16px;color:#6d28d9;font-weight:600;font-size:1rem;}
-
-/* ── PRODUCT GRID ── */
-.products-count{font-size:.82rem;color:var(--purple-light);font-weight:700;margin-bottom:20px;}
-.products-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(230px,1fr));
-  gap:22px;
-}
-.no-products{text-align:center;padding:80px 20px;grid-column:1/-1;}
-.no-products .big{font-size:4rem;margin-bottom:12px;}
-.no-products p{color:var(--purple-light);font-weight:700;font-size:1.1rem;}
-
-/* ── PRODUCT CARD ── */
-.product-card{
-  background:#fff;border-radius:var(--radius-lg);
-  overflow:hidden;
-  box-shadow:0 4px 20px rgba(124,58,237,.1);
-  border:2px solid #f3f0ff;
-  transition:all .35s cubic-bezier(.34,1.56,.64,1);
-  cursor:pointer;
-}
-.product-card:hover{
-  transform:translateY(-8px) scale(1.02);
-  box-shadow:var(--shadow-hover);
-  border-color:#c4b5fd;
-}
-.card-img{
-  position:relative;overflow:hidden;
-  height:220px;
-  background:linear-gradient(135deg,#f5f3ff,#fce7f3);
-}
-.card-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease;}
-.product-card:hover .card-img img{transform:scale(1.08);}
+.products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:22px;}
+.product-card{background:#fff;border-radius:var(--radius-lg);overflow:hidden;box-shadow:0 4px 20px rgba(124,58,237,.1);border:2px solid #f3f0ff;transition:0.3s;cursor:pointer;}
+.product-card:hover{transform:translateY(-8px);border-color:#c4b5fd;}
+.card-img{height:220px;background:#f5f3ff;}
+.card-img img{width:100%;height:100%;object-fit:cover;}
 .card-body{padding:14px;}
-.card-name{
-  font-weight:800;font-size:.95rem;color:#1e1b4b;
-  line-height:1.35;margin-bottom:12px;
-  display:-webkit-box;-webkit-line-clamp:2;
-  -webkit-box-orient:vertical;overflow:hidden;
-}
-.btn-order{
-  width:100%;display:flex;align-items:center;justify-content:center;gap:7px;
-  background:linear-gradient(135deg,#22c55e,#16a34a);
-  color:#fff;font-weight:800;font-size:.85rem;
-  padding:11px;border-radius:var(--radius);border:none;cursor:pointer;
-  font-family:var(--font-body);
-  box-shadow:0 4px 14px rgba(34,197,94,.3);
-  transition:all .3s ease;
-  position:relative;overflow:hidden;
-}
-.btn-order::before{
-  content:'';position:absolute;inset:0;
-  background:rgba(255,255,255,.2);
-  transform:translateX(-100%);transition:transform .4s ease;
-}
-.btn-order:hover::before{transform:translateX(100%);}
-.btn-order:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(34,197,94,.45);}
-.btn-order:active{transform:scale(.97);}
+.card-name{font-weight:800;font-size:.95rem;color:#1e1b4b;margin-bottom:12px;}
+.btn-order{width:100%;display:flex;align-items:center;justify-content:center;gap:7px;background:linear-gradient(135deg,#22c55e,#16a34a);color:#fff;font-weight:800;padding:11px;border:none;border-radius:var(--radius);cursor:pointer;}
 
 /* ── FACEBOOK CTA ── */
-.fb-cta-wrap {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 40px;
-  padding: 0 20px;
-  width: 100%;
-}
-.fb-cta-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  background: #1877F2;
-  color: #fff;
-  font-weight: 800;
-  font-size: 1.1rem;
-  padding: 16px 30px;
-  border-radius: 99px;
-  text-decoration: none;
-  box-shadow: 0 8px 24px rgba(24, 119, 242, 0.3);
-  width: 100%;
-  max-width: 700px;
-  transition: all 0.3s ease;
-}
-.fb-cta-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 28px rgba(24, 119, 242, 0.45);
-  color: #fff;
-}
-.fb-cta-btn svg {width: 28px;height: 28px;fill: #fff;flex-shrink: 0;}
-
-/* ── ABOUT SECTION ── */
-#about{background:linear-gradient(135deg,#fdf4ff,#fff,#fdf2f8);}
-.about-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:48px;}
-.about-card{
-  background:#fff;border-radius:var(--radius-lg);padding:32px 24px;
-  text-align:center;border:2px solid var(--purple-pale);
-  transition:all .3s ease;
-}
-.about-card:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:#c4b5fd;}
-.about-icon{
-  width:64px;height:64px;border-radius:20px;margin:0 auto 18px;
-  display:flex;align-items:center;justify-content:center;
-  font-size:1.8rem;
-  box-shadow:0 4px 14px rgba(0,0,0,.1);
-  transition:all .3s ease;
-}
-.about-card:hover .about-icon{transform:scale(1.1) rotate(5deg);}
-.about-card h3{font-family:var(--font-display);font-size:1.2rem;color:#1e1b4b;margin-bottom:8px;}
-.about-card p{color:#6d28d9;font-weight:600;font-size:.9rem;line-height:1.6;}
-.about-cta{
-  background:linear-gradient(135deg,var(--purple),var(--pink),var(--purple));
-  background-size:200% 200%;animation:gradientMove 4s ease infinite;
-  border-radius:var(--radius-xl);padding:50px 40px;text-align:center;
-  position:relative;overflow:hidden;
-}
-.about-cta::before{
-  content:'';position:absolute;inset:0;
-  background-image:radial-gradient(circle,rgba(255,255,255,.08) 1px,transparent 1px);
-  background-size:24px 24px;
-}
-.about-cta-title{
-  font-family:var(--font-display);font-size:2rem;color:#fff;
-  margin-bottom:10px;position:relative;z-index:1;
-}
-.about-cta-sub{color:rgba(255,255,255,.8);font-weight:600;margin-bottom:24px;position:relative;z-index:1;}
-.btn-wa-big{
-  display:inline-flex;align-items:center;gap:10px;
-  background:#fff;color:var(--green-dark);
-  font-weight:800;font-size:1rem;padding:14px 28px;
-  border-radius:var(--radius);border:none;cursor:pointer;
-  text-decoration:none;position:relative;z-index:1;
-  box-shadow:0 8px 24px rgba(0,0,0,.2);
-  transition:all .3s ease;
-}
-.btn-wa-big:hover{transform:scale(1.05);box-shadow:0 12px 32px rgba(0,0,0,.25);}
+.fb-cta-wrap{display:flex;justify-content:center;margin-top:40px;}
+.fb-cta-btn{display:flex;align-items:center;gap:12px;background:#1877F2;color:#fff;font-weight:800;padding:16px 30px;border-radius:99px;text-decoration:none;box-shadow:0 8px 24px rgba(24,119,242,0.3);}
 
 /* ── LOCATIONS ── */
-#locations{
-  background:linear-gradient(135deg,#1e1b4b,#312e81);
-  padding:60px 20px;
-}
-.locations-inner{max-width:1200px;margin:0 auto;}
-.locations-header{text-align:center;margin-bottom:40px;}
-.locations-header h2{
-  font-family:var(--font-display);font-size:clamp(1.6rem,3vw,2.2rem);
-  color:#fff;margin-bottom:8px;
-}
-.locations-header p{color:#a5b4fc;font-weight:600;font-size:.95rem;}
-.locations-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
-.location-card{
-  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);
-  border-radius:var(--radius-lg);padding:28px 24px;
-  display:flex;align-items:flex-start;gap:16px;
-  transition:all .3s ease;
-  flex-direction: column;
-}
-.location-card:hover{background:rgba(255,255,255,.12);transform:translateY(-4px);}
-.location-header-row { display:flex; align-items:center; gap: 16px; width: 100%; }
-.location-icon{
-  width:48px;height:48px;border-radius:14px;flex-shrink:0;
-  background:linear-gradient(135deg,var(--purple),var(--pink));
-  display:flex;align-items:center;justify-content:center;
-  box-shadow:0 4px 14px rgba(124,58,237,.4);
-}
-.location-icon svg{width:22px;height:22px;fill:#fff;}
-.location-info h3{
-  font-family:var(--font-display);font-size:1.3rem;color:#fff;margin-bottom:4px;
-}
-.location-info p{color:#a5b4fc;font-size:.9rem;font-weight:600;line-height:1.5;}
-.loc-map-btn {
-  display: inline-flex; align-items: center; gap: 8px;
-  background: var(--purple); color: #fff;
-  padding: 10px 20px; border-radius: 99px; text-decoration: none;
-  font-weight: 800; font-size: .9rem; margin-top: 15px;
-  transition: all .3s ease;
-}
-.loc-map-btn:hover { background: var(--pink); transform: translateY(-2px); color:#fff; }
+#locations{background:linear-gradient(135deg,#1e1b4b,#312e81);color:white;}
+.locations-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;max-width:1200px;margin:0 auto;}
+.location-card{background:rgba(255,255,255,0.07);padding:25px;border-radius:var(--radius-lg);display:flex;flex-direction:column;gap:15px;}
+.loc-map-btn{display:inline-flex;justify-content:center;background:var(--purple);color:white;padding:10px;border-radius:99px;text-decoration:none;font-weight:800;}
 
 /* ── FOOTER ── */
-#footer{
-  background:linear-gradient(135deg,#1e1b4b,#312e81,#4c1d95);
-  color:#fff;padding:60px 20px 28px;
-  position:relative;overflow:hidden;
-}
-#footer::before{
-  content:'';position:absolute;inset:0;
-  background-image:radial-gradient(circle,rgba(255,255,255,.04) 1px,transparent 1px);
-  background-size:24px 24px;
-}
-.footer-inner{max-width:1200px;margin:0 auto;position:relative;z-index:1;}
-.footer-grid{
-  display:grid;grid-template-columns:1.5fr 1fr 1fr;
-  gap:40px;margin-bottom:40px;
-}
-.footer-logo{
-  display:flex;align-items:center;gap:10px;margin-bottom:14px;
-}
-.footer-logo-icon{
-  width:38px;height:38px;background:rgba(255,255,255,.15);
-  border-radius:12px;display:flex;align-items:center;justify-content:center;
-  font-size:18px;
-}
-.footer-logo-text{font-family:var(--font-display);font-size:1.4rem;}
-.footer-logo-text span:first-child{color:#c4b5fd;}
-.footer-logo-text span:last-child{color:#f9a8d4;}
-.footer-tagline{color:#a5b4fc;font-weight:600;font-size:.9rem;line-height:1.6;margin-bottom:18px;}
-.footer-socials{display:flex;gap:8px;}
-.social-btn{
-  width:38px;height:38px;border-radius:12px;
-  background:rgba(255,255,255,.1);
-  display:flex;align-items:center;justify-content:center;
-  text-decoration:none;color:#fff;font-size:1rem;
-  transition:all .3s ease;
-}
-.social-btn:hover{background:rgba(255,255,255,.2);transform:scale(1.1);}
-.email-text { margin-top: 15px; font-size: 0.95rem; font-weight: bold; color: #a5b4fc; }
-
-.footer-col h4{
-  font-family:var(--font-display);font-size:1.05rem;
-  color:#c4b5fd;margin-bottom:14px;
-}
-.footer-links{list-style:none;display:flex;flex-direction:column;gap:8px;}
-.footer-links a{
-  color:#a5b4fc;text-decoration:none;font-weight:600;
-  font-size:.88rem;transition:color .2s;
-  display:flex;align-items:center;gap:7px;
-}
-.footer-links a::before{
-  content:'';width:6px;height:6px;
-  background:var(--pink);border-radius:50%;flex-shrink:0;
-}
-.footer-links a:hover{color:#fff;}
-.footer-bottom{
-  border-top:1px solid rgba(255,255,255,.1);
-  padding-top:22px;text-align:center;
-  color:#a5b4fc;font-size:.82rem;font-weight:600;
-}
-
-/* ── WHATSAPP FAB ── */
-#wa-fab{
-  position:fixed;bottom:24px;right:24px;z-index:997;
-  animation:float 2.5s ease-in-out infinite;
-}
-html[dir=rtl] #wa-fab{right:auto;left:24px;}
-.wa-fab-ring{
-  position:absolute;inset:0;border-radius:50%;
-  background:rgba(34,197,94,.35);
-  animation:pulseRing 2s ease-out infinite;
-}
-.wa-fab-ring2{animation-delay:.6s;}
-.wa-fab-btn{
-  position:relative;z-index:1;
-  width:56px;height:56px;border-radius:50%;
-  background:linear-gradient(135deg,#22c55e,#16a34a);
-  display:flex;align-items:center;justify-content:center;
-  box-shadow:0 8px 24px rgba(34,197,94,.5);
-  text-decoration:none;
-  transition:transform .3s ease;
-}
-.wa-fab-btn:hover{transform:scale(1.1);}
-.wa-fab-btn svg{width:28px;height:28px;fill:#fff;}
-.wa-fab-tooltip{
-  position:absolute;right:66px;top:50%;transform:translateY(-50%);
-  background:#1e1b4b;color:#fff;
-  font-weight:700;font-size:.75rem;
-  padding:6px 12px;border-radius:10px;
-  white-space:nowrap;
-  opacity:0;transition:opacity .3s;pointer-events:none;
-}
-html[dir=rtl] .wa-fab-tooltip{right:auto;left:66px;}
-#wa-fab:hover .wa-fab-tooltip{opacity:1;}
+#footer{background:linear-gradient(135deg,#1e1b4b,#312e81,#4c1d95);color:#fff;padding:60px 20px;}
+.footer-socials{display:flex;gap:15px;margin:20px 0;}
+.social-btn{width:40px;height:40px;background:rgba(255,255,255,0.1);border-radius:10px;display:flex;align-items:center;justify-content:center;text-decoration:none;color:white;}
 
 /* ── MODAL ── */
-.modal-backdrop{
-  display:none;position:fixed;inset:0;
-  background:rgba(30,27,75,.65);backdrop-filter:blur(6px);
-  z-index:1000;align-items:center;justify-content:center;padding:20px;
-}
+.modal-backdrop{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:1001;align-items:center;justify-content:center;padding:20px;}
 .modal-backdrop.open{display:flex;}
-.modal{
-  background:#fff;border-radius:var(--radius-xl);
-  width:100%;max-width:560px;
-  max-height:90vh;overflow-y:auto;
-  box-shadow:0 32px 80px rgba(0,0,0,.25);
-  animation:bounceIn .4s ease;
-}
-.modal-header{
-  padding:24px 24px 0;
-  display:flex;align-items:flex-start;justify-content:flex-end;gap:12px;
-}
-.modal-close{
-  width:36px;height:36px;border-radius:10px;
-  background:var(--purple-pale);border:none;cursor:pointer;
-  display:flex;align-items:center;justify-content:center;
-  font-size:1.1rem;color:var(--purple);flex-shrink:0;
-  transition:all .2s;
-}
-.modal-close:hover{background:var(--purple);color:#fff;}
-.modal-img{height:280px;background:linear-gradient(135deg,#f5f3ff,#fce7f3);overflow:hidden;}
-.modal-img img{width:100%;height:100%;object-fit:cover;}
-.modal-body{padding:20px 24px 28px;}
-.modal-name{font-family:var(--font-display);font-size:1.6rem;color:#1e1b4b;margin-bottom:12px;}
-.modal-wa-btn{
-  width:100%;display:flex;align-items:center;justify-content:center;gap:10px;
-  background:linear-gradient(135deg,#22c55e,#16a34a);
-  color:#fff;font-weight:800;font-size:1rem;
-  padding:14px;border-radius:var(--radius);border:none;cursor:pointer;
-  font-family:var(--font-body);margin-top:18px;
-  box-shadow:0 6px 20px rgba(34,197,94,.4);
-  transition:all .3s ease;
-}
-.modal-wa-btn:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(34,197,94,.5);}
-.modal-wa-btn svg{width:20px;height:20px;fill:#fff;}
+.modal{background:white;border-radius:var(--radius-xl);width:100%;max-width:500px;overflow:hidden;}
+.modal-body{padding:25px;}
 
-/* ── SCROLL TO TOP ── */
-#scroll-top{
-  position:fixed;bottom:92px;right:24px;z-index:996;
-  width:42px;height:42px;border-radius:12px;
-  background:var(--purple-pale);border:none;cursor:pointer;
-  display:flex;align-items:center;justify-content:center;
-  font-size:1rem;color:var(--purple);
-  box-shadow:0 4px 14px rgba(124,58,237,.2);
-  transition:all .3s ease;opacity:0;pointer-events:none;
-}
-html[dir=rtl] #scroll-top{right:auto;left:24px;}
-#scroll-top.visible{opacity:1;pointer-events:all;}
-#scroll-top:hover{background:var(--purple);color:#fff;transform:translateY(-2px);}
-
-/* ── RESPONSIVE ── */
-@media(max-width:900px){
-  nav,#header .wa-header-btn{display:none!important;}
-  .hamburger{display:flex!important;}
-  .hero-inner{grid-template-columns:1fr;gap:40px;text-align:center;}
-  html[dir=rtl] .hero-inner{text-align:center;}
-  .hero-btns{justify-content:center;}
-  .hero-stats{justify-content:center;}
-  .hero-sub{margin-left:auto;margin-right:auto;}
-  .hero-image{display:none;}
-  .features-inner{grid-template-columns:repeat(2,1fr);}
-  .about-grid{grid-template-columns:1fr 1fr;}
-  .footer-grid{grid-template-columns:1fr 1fr;}
-}
-@media(max-width:600px){
-  .features-inner{grid-template-columns:1fr 1fr;gap:12px;}
-  .about-grid{grid-template-columns:1fr;}
-  .footer-grid{grid-template-columns:1fr;}
-  .products-grid{grid-template-columns:repeat(2,1fr);gap:12px;}
-  .card-img{height:180px;}
-  .about-cta{padding:32px 20px;}
-  .about-cta-title{font-size:1.5rem;}
-  #filter-bar{flex-direction:column;align-items:flex-start;}
-  .fb-cta-btn { padding: 14px 20px; font-size: 0.9rem;}
-}
+@media(max-width:900px){nav,.wa-header-btn{display:none!important;}.hero-inner{grid-template-columns:1fr;text-align:center;}.hero-image{display:none;}}
+@media(max-width:600px){.locations-grid{grid-template-columns:1fr;}.products-grid{grid-template-columns:repeat(2,1fr);gap:12px;}}
 </style>
 </head>
 <body>
 
-<!-- TICKER BAR -->
 <div id="ticker-bar">
-  <div class="ticker-track" id="ticker-track">
+  <div class="ticker-track">
     <span class="ticker-item">✨ <span id="tk1">Nouvelle Collection Disponible</span></span>
-    <span class="ticker-item ticker-sep">◆</span>
     <span class="ticker-item">🚚 <span id="tk2">Livraison 24 - 48h</span></span>
-    <span class="ticker-item ticker-sep">◆</span>
-    <span class="ticker-item">👕 <span id="tk3">Qualité Premium pour Enfants</span></span>
-    <span class="ticker-item ticker-sep">◆</span>
-    <span class="ticker-item">💬 <span id="tk4">Commandez sur WhatsApp</span></span>
-    <span class="ticker-item ticker-sep">◆</span>
-    <span class="ticker-item">🏪 <span id="tk5">Deux Boutiques à votre service</span></span>
-    <span class="ticker-item ticker-sep">◆</span>
-    <!-- Duplicate for infinite loop -->
-    <span class="ticker-item">✨ <span>Nouvelle Collection Disponible</span></span>
-    <span class="ticker-item ticker-sep">◆</span>
-    <span class="ticker-item">🚚 <span>Livraison 24 - 48h</span></span>
-    <span class="ticker-item ticker-sep">◆</span>
-    <span class="ticker-item">👕 <span>Qualité Premium pour Enfants</span></span>
-    <span class="ticker-item ticker-sep">◆</span>
-    <span class="ticker-item">💬 <span>Commandez sur WhatsApp</span></span>
-    <span class="ticker-item ticker-sep">◆</span>
-    <span class="ticker-item">🏪 <span>Deux Boutiques à votre service</span></span>
+    <span class="ticker-item">👕 <span id="tk3">Qualité Premium</span></span>
+    <span class="ticker-item">💬 <span id="tk4">WhatsApp</span></span>
   </div>
 </div>
 
-<!-- HEADER -->
 <header id="header">
   <div class="header-inner">
-    <a href="#" class="logo" onclick="scrollToSection('hero')">
-      <div class="logo-icon">
-        <span>👕</span>
-        <div class="badge">✨</div>
-      </div>
+    <a href="#" class="logo">
+      <div class="logo-icon">👕</div>
       <div class="logo-text"><span>KIDI</span><span> BOOM</span></div>
     </a>
     <nav>
-      <a href="#" onclick="scrollToSection('hero');return false;" id="nav-home">Accueil</a>
-      <a href="#" onclick="scrollToSection('catalogue');return false;" id="nav-products">Nos Articles</a>
-      <a href="#" onclick="scrollToSection('about');return false;" id="nav-about">À Propos</a>
+      <a href="#" id="nav-home" onclick="scrollToSection('hero');return false;">Accueil</a>
+      <a href="#" onclick="scrollToSection('catalogue');return false;" id="nav-products">Articles</a>
+      <a href="#" onclick="scrollToSection('locations');return false;" id="nav-about">Magasins</a>
     </nav>
     <div class="header-right">
-      <div class="social-header-icons">
-        <a href="https://www.facebook.com/profile.php?id=100079754059675" target="_blank" rel="noopener" class="social-header-icon fb" title="Facebook">
-          <svg viewBox="0 0 24 24" fill="#1877F2" xmlns="http://www.w3.org/2000/svg"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-        </a>
-        <a href="https://www.instagram.com/kidiboom_" target="_blank" rel="noopener" class="social-header-icon insta" title="Instagram">
-          <svg viewBox="0 0 24 24" fill="#E1306C" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-        </a>
-        <a href="https://www.tiktok.com/@kidi.boom" target="_blank" rel="noopener" class="social-header-icon tiktok" title="TikTok">
-          <svg viewBox="0 0 24 24" fill="#010101" xmlns="http://www.w3.org/2000/svg"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.26 8.26 0 004.83 1.56V6.79a4.85 4.85 0 01-1.06-.1z"/></svg>
-        </a>
-      </div>
       <div class="lang-switcher">
-        <button class="lang-btn active" onclick="setLang('fr')" id="btn-fr">🇫🇷 FR</button>
-        <button class="lang-btn" onclick="setLang('ar')" id="btn-ar">🇩🇿 ع</button>
+        <button class="lang-btn active" onclick="setLang('fr')" id="btn-fr">FR</button>
+        <button class="lang-btn" onclick="setLang('ar')" id="btn-ar">ع</button>
       </div>
-      <a href="#" id="wa-header-btn" class="wa-header-btn" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" style="width:15px;height:15px;fill:#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        WhatsApp
-      </a>
+      <a href="#" id="wa-header-btn" class="wa-header-btn" target="_blank">WhatsApp</a>
     </div>
-    <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-  <div class="mobile-menu" id="mobile-menu">
-    <a href="#" onclick="scrollToSection('hero');toggleMenu();return false;" id="mob-home">Accueil</a>
-    <a href="#" onclick="scrollToSection('catalogue');toggleMenu();return false;" id="mob-products">Nos Articles</a>
-    <a href="#" onclick="scrollToSection('about');toggleMenu();return false;" id="mob-about">À Propos</a>
-    <a href="#" id="mob-wa" target="_blank" rel="noopener" style="background:#dcfce7;color:#166534;">📲 WhatsApp</a>
   </div>
 </header>
 
-<!-- HERO -->
 <section id="hero">
-  <div class="hero-bg-blob blob1"></div>
-  <div class="hero-bg-blob blob2"></div>
-  <div class="hero-bg-blob blob3"></div>
-  <div class="dots-bg"></div>
-  <div class="emoji-deco animate-float" style="top:15%;left:4%;font-size:1.8rem;opacity:.4">🌟</div>
-  <div class="emoji-deco animate-floatB" style="top:20%;right:6%;font-size:2rem;opacity:.35">🎀</div>
-  <div class="emoji-deco animate-float" style="bottom:20%;left:6%;font-size:1.5rem;opacity:.3">✨</div>
-  <div class="emoji-deco animate-floatB" style="bottom:15%;right:4%;font-size:1.6rem;opacity:.35">⭐</div>
-  <div class="emoji-deco animate-spin" style="top:40%;right:2%;font-size:2.5rem;opacity:.1">⭐</div>
-
   <div class="hero-inner">
-    <div class="hero-content animate-slideUp">
-      <div class="hero-badge" id="hero-badge">✨ <span id="hero-badge-text">Nouvelle Collection</span></div>
-      <h1 class="hero-title">
-        <span id="hero-t1">La Mode pour</span><br>
-        <span class="highlight" id="hero-t2">Petits Trésors</span>
-      </h1>
-      <p class="hero-sub" id="hero-sub">Vêtements colorés, confortables et adorables pour vos enfants</p>
-      <div class="hero-btns">
-        <a href="#" class="btn-primary" onclick="scrollToSection('catalogue');return false;">
-          <span id="hero-cta1">Découvrir la Collection</span>
-          <span>→</span>
-        </a>
-        <a href="#" id="hero-wa-btn" class="btn-wa" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" style="width:18px;height:18px;fill:#16a34a"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          <span id="hero-cta2">Commander sur WhatsApp</span>
-        </a>
-      </div>
-      <div class="hero-stats">
-        <div class="stat"><div class="stat-num" id="stat-products">0</div><div class="stat-label" id="stat-label1">Produits</div></div>
-        <div class="stat"><div class="stat-num">100%</div><div class="stat-label" id="stat-label2">Qualité</div></div>
-        <div class="stat"><div class="stat-num">24h</div><div class="stat-label" id="stat-label3">Livraison</div></div>
-      </div>
+    <div class="hero-content">
+      <h1 class="hero-title"><span id="hero-t1">La Mode pour</span><br><span class="highlight" id="hero-t2">Petits Trésors</span></h1>
+      <p id="hero-sub">Vêtements colorés et adorables pour vos enfants</p>
+      <a href="#" class="btn-primary" onclick="scrollToSection('catalogue');return false;" id="hero-cta1">Découvrir</a>
     </div>
     <div class="hero-image">
-      <div class="hero-img-wrap">
-        <div class="hero-img-card" style="display:flex; justify-content:center; align-items:center; background:#fff; padding:20px;">
-          <img src="https://i.postimg.cc/4xBZvJSL/logo.jpg" alt="KIDI BOOM Logo" style="width:100%; max-width:280px; object-fit:contain; display:block;" id="main-logo-img">
-        </div>
-        <div class="hero-floating-card fc2">
-          <div class="fc-emoji">🎀</div>
-          <div class="fc-text">
-            <p id="fc2-text">Nouvelle Collection</p>
-            <p>✓</p>
-          </div>
-        </div>
-        <div class="hero-floating-card fc1">
-          <div class="fc-emoji">⭐</div>
-          <div class="fc-text">
-            <p id="fc1-text">Livraison rapide</p>
-            <p>24h 🚀</p>
-          </div>
-        </div>
+      <div class="hero-img-card">
+        <img src="https://i.postimg.cc/4xBZvJSL/logo.jpg" alt="KIDI BOOM Logo">
       </div>
     </div>
   </div>
-  <div class="hero-wave">
-    <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0 30 Q360 60 720 30 Q1080 0 1440 30 L1440 60 L0 60 Z" fill="white" fill-opacity=".8"/>
-    </svg>
-  </div>
 </section>
 
-<!-- FEATURES BAR -->
-<div id="features-bar">
-  <div class="features-inner">
-    <div class="feature-item"><div class="fi-icon">🚚</div><div class="fi-text"><p id="f1-t">Livraison rapide</p><p>24 - 48h</p></div></div>
-    <div class="feature-item"><div class="fi-icon">✅</div><div class="fi-text"><p id="f2-t">Qualité garantie</p><p>100% Premium</p></div></div>
-    <div class="feature-item"><div class="fi-icon">💬</div><div class="fi-text"><p id="f3-t">Support WhatsApp</p><p>7j/7</p></div></div>
-    <div class="feature-item"><div class="fi-icon">🔄</div><div class="fi-text"><p id="f4-t">Échange facile</p><p id="f4-s">Sans souci</p></div></div>
-  </div>
-</div>
-
-<!-- CATALOGUE -->
 <section class="section" id="catalogue">
   <div class="section-inner">
-    <div class="section-header">
-      <div class="section-chip">🛍️ <span id="cat-chip">KIDI BOOM Collection</span></div>
-      <h2 class="section-title" id="cat-title">Tous nos Articles</h2>
-      <p class="section-sub" id="cat-sub">Explorez toute notre collection</p>
-    </div>
-
-    <p class="products-count" id="products-count"></p>
-    
+    <h2 class="section-title" style="margin-bottom:40px; text-align:center;" id="cat-title">Tous nos Articles</h2>
+    <p id="products-count" style="text-align:center; margin-bottom:20px; color:var(--purple); font-weight:bold;"></p>
     <div class="products-grid" id="products-grid"></div>
-
-    <!-- Facebook CTA -->
+    
     <div class="fb-cta-wrap">
-      <a href="https://www.facebook.com/profile.php?id=100079754059675" target="_blank" rel="noopener" class="fb-cta-btn">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-        <span id="fb-cta-text">Vous pouvez voir plus de produits sur notre page Facebook</span>
+      <a href="https://www.facebook.com/profile.php?id=100079754059675" target="_blank" class="fb-cta-btn">
+        <svg viewBox="0 0 24 24" fill="white" width="24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        <span id="fb-cta-text">Voir plus sur Facebook</span>
       </a>
     </div>
   </div>
 </section>
 
-<!-- ABOUT SECTION -->
-<section class="section" id="about">
+<section id="locations" class="section">
   <div class="section-inner">
-    <div class="section-header">
-      <h2 class="section-title" id="about-title">Pourquoi KIDI BOOM ?</h2>
-    </div>
-    <div class="about-grid">
-      <div class="about-card">
-        <div class="about-icon" style="background:linear-gradient(135deg,#7c3aed,#a855f7)">🏆</div>
-        <h3 id="a1-t">Qualité Premium</h3>
-        <p id="a1-d">Des matières douces et résistantes pour le confort de vos enfants</p>
-      </div>
-      <div class="about-card">
-        <div class="about-icon" style="background:linear-gradient(135deg,#ec4899,#f43f5e)">💰</div>
-        <h3 id="a2-t">Prix Accessibles</h3>
-        <p id="a2-d">Le style sans sacrifier le budget familial</p>
-      </div>
-      <div class="about-card">
-        <div class="about-icon" style="background:linear-gradient(135deg,#f59e0b,#f97316)">🚀</div>
-        <h3 id="a3-t">Livraison Rapide</h3>
-        <p id="a3-d">Commandez sur WhatsApp et recevez en 24-48h</p>
-      </div>
-    </div>
-    <div class="about-cta">
-      <div class="about-cta-title" id="cta-title">Commandez maintenant sur WhatsApp !</div>
-      <p class="about-cta-sub" id="cta-sub">Rapide, simple et sécurisé. Contactez-nous directement.</p>
-      <a href="#" id="cta-wa-btn" class="btn-wa-big" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" style="width:22px;height:22px;fill:#16a34a"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        <span id="cta-btn-text">Discutez avec nous maintenant</span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- LOCATIONS -->
-<section id="locations">
-  <div class="locations-inner">
-    <div class="locations-header">
-      <h2 id="loc-title">📍 Nos Boutiques</h2>
-      <p id="loc-sub">Retrouvez-nous dans nos deux points de vente</p>
-    </div>
+    <h2 style="text-align:center; margin-bottom:40px;" id="loc-title">📍 Nos Boutiques</h2>
     <div class="locations-grid">
       <div class="location-card">
-        <div class="location-header-row">
-            <div class="location-icon">
-              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-            </div>
-            <div class="location-info">
-              <h3 id="loc1-name">Kidi boom - Bab dzaier</h3>
-              <p id="loc1-addr">Bab Dzaier, Alger — Centre commercial</p>
-            </div>
-        </div>
-        <a href="https://maps.app.goo.gl/d6Hf9HEWDHMsVyfD6" target="_blank" class="loc-map-btn">📍 Voir sur Google Maps</a>
+        <h3 id="loc1-name">Kidi boom - Bab dzaier</h3>
+        <p id="loc1-addr">Bab Dzaier, Alger</p>
+        <a href="https://maps.app.goo.gl/d6Hf9HEWDHMsVyfD6" target="_blank" class="loc-map-btn">📍 Google Maps</a>
       </div>
       <div class="location-card">
-        <div class="location-header-row">
-            <div class="location-icon">
-              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-            </div>
-            <div class="location-info">
-              <h3 id="loc2-name">Kidi boom - Bab zaouia</h3>
-              <p id="loc2-addr">Bab Zaouia, Alger</p>
-            </div>
-        </div>
-        <a href="https://maps.app.goo.gl/9PLV5QGAJUTBYeGv9" target="_blank" class="loc-map-btn">📍 Voir sur Google Maps</a>
+        <h3 id="loc2-name">Kidi boom - Bab zaouia</h3>
+        <p id="loc2-addr">Bab Zaouia, Alger</p>
+        <a href="https://maps.app.goo.gl/9PLV5QGAJUTBYeGv9" target="_blank" class="loc-map-btn">📍 Google Maps</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer id="footer">
-  <div class="footer-inner">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <div class="footer-logo">
-          <div class="footer-logo-icon">👕</div>
-          <div class="footer-logo-text"><span>KIDI</span><span> BOOM</span></div>
-        </div>
-        <p class="footer-tagline" id="footer-tagline">La joie dans chaque vêtement</p>
-        <div class="footer-socials">
-          <a href="https://www.facebook.com/profile.php?id=100079754059675" target="_blank" rel="noopener" class="social-btn" title="Facebook">
-            <svg viewBox="0 0 24 24" style="width:18px;height:18px;fill:currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-          </a>
-          <a href="https://www.instagram.com/kidiboom_" target="_blank" rel="noopener" class="social-btn" title="Instagram">
-            <svg viewBox="0 0 24 24" style="width:18px;height:18px;fill:currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-          </a>
-          <a href="https://www.tiktok.com/@kidi.boom" target="_blank" rel="noopener" class="social-btn" title="TikTok">
-            <svg viewBox="0 0 24 24" fill="#010101" xmlns="http://www.w3.org/2000/svg"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.26 8.26 0 004.83 1.56V6.79a4.85 4.85 0 01-1.06-.1z"/></svg>
-          </a>
-          <a href="mailto:kidiboom@hotmail.fr" class="social-btn" title="Email">
-            <svg viewBox="0 0 24 24" style="width:18px;height:18px;fill:currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-          </a>
-        </div>
-        <p class="email-text">kidiboom@hotmail.fr</p>
-      </div>
-      <div class="footer-col">
-        <h4 id="footer-links-title">Liens rapides</h4>
-        <ul class="footer-links">
-          <li><a href="#" onclick="scrollToSection('hero');return false;" id="fl-home">Accueil</a></li>
-          <li><a href="#" onclick="scrollToSection('catalogue');return false;" id="fl-products">Nos Articles</a></li>
-          <li><a href="#" onclick="scrollToSection('about');return false;" id="fl-about">À Propos</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4 id="footer-contact-title">Contactez-nous</h4>
-        <ul class="footer-links">
-          <li><a href="#" id="footer-wa2" target="_blank">WhatsApp</a></li>
-          <li><a href="#">Facebook</a></li>
-          <li><a href="#">Instagram</a></li>
-          <li><a href="mailto:kidiboom@hotmail.fr">Email</a></li>
-        </ul>
-      </div>
+  <div class="section-inner">
+    <div class="footer-logo-text"><span>KIDI</span><span> BOOM</span></div>
+    <div class="footer-socials">
+      <a href="mailto:kidiboom@hotmail.fr" class="social-btn" title="Email"><svg viewBox="0 0 24 24" width="20" fill="white"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
+      <a href="#" id="footer-wa2" class="social-btn" title="WhatsApp" target="_blank"><svg viewBox="0 0 24 24" width="20" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
     </div>
-    <div class="footer-bottom">
-      © KIDI BOOM. <span id="footer-rights">Tous droits réservés</span>. Made with ❤️
-    </div>
+    <p style="color:#a5b4fc; font-weight:bold;">kidiboom@hotmail.fr</p>
+    <p style="text-align:center; border-top:1px solid rgba(255,255,255,0.1); padding-top:20px; margin-top:20px; color:#a5b4fc;">© KIDI BOOM. Tous droits réservés.</p>
   </div>
 </footer>
 
-<!-- WHATSAPP FAB -->
-<a id="wa-fab" href="#" target="_blank" rel="noopener">
-  <div class="wa-fab-ring"></div>
-  <div class="wa-fab-ring wa-fab-ring2"></div>
-  <div class="wa-fab-btn">
-    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-  </div>
-  <div class="wa-fab-tooltip" id="wa-fab-tooltip">Discutez avec nous 💬</div>
-</a>
-
-<!-- MODAL -->
-<div class="modal-backdrop" id="modal" onclick="closeModal(event)">
-  <div class="modal" id="modal-box">
-    <div class="modal-header">
-      <div style="display:flex;gap:7px;flex-wrap:wrap" id="modal-badges"></div>
-      <button class="modal-close" onclick="closeModalDirect()">✕</button>
-    </div>
+<div class="modal-backdrop" id="modal" onclick="if(event.target===this) closeModalDirect()">
+  <div class="modal">
+    <div class="modal-header"><button class="modal-close" onclick="closeModalDirect()">✕</button></div>
     <div class="modal-img" id="modal-img"></div>
     <div class="modal-body">
-      <div class="modal-name" id="modal-name"></div>
+      <div class="modal-name" id="modal-name" style="font-weight:bold; font-size:1.4rem; color:var(--dark); margin-bottom:15px;"></div>
       <button class="modal-wa-btn" id="modal-wa-btn" onclick="orderFromModal()">
-        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        <span id="modal-wa-text">Commander sur WhatsApp</span>
+        <svg viewBox="0 0 24 24" width="20" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp
       </button>
     </div>
   </div>
 </div>
 
 <script>
-// ══════════════════════════════════════════════════════════
-//  KIDI BOOM — Configuration
-// ══════════════════════════════════════════════════════════
-const CONFIG = {
-  whatsapp: '213553454520', 
-  storeName: 'KIDI BOOM',
-};
+const CONFIG = { whatsapp: '213553454520', storeName: 'KIDI BOOM' };
 
-// ══════════════════════════════════════════════════════════
-//  رابط جوجل شيت المباشر الخاص بك
-// ══════════════════════════════════════════════════════════
-const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQzlArTANRbwpL6_tHgoqQdM5K8hDUuXn6Eb6OdeWmBt-yHeZo42U46XsoauhF7hSWvKqiuCje1COvY/pub?output=csv';
+// المعرّف الخاص بجوجل شيت الخاص بك (تم استخراجه من روابطك السابقة)
+const SHEET_ID = '1crNYvtlMj16ae5l_GmTjwzw55pDEtuPOJ_-WW2pFZlU';
+// الرابط السري والآمن لجلب البيانات مباشرة بصيغة JSON بدون أخطاء متصفح
+const API_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json`;
 
-// ══════════════════════════════════════════════════════════
-//  TRADUCTIONS
-// ══════════════════════════════════════════════════════════
 const TR = {
-  fr:{
-    navHome:'Accueil',navProducts:'Nos Articles',navAbout:'À Propos',
-    heroBadge:'✨ Nouvelle Collection',
-    heroT1:'La Mode pour',heroT2:'Petits Trésors',
-    heroSub:'Vêtements colorés, confortables et adorables pour vos enfants',
-    heroCta1:'Découvrir la Collection',heroCta2:'Commander sur WhatsApp',
-    statProd:'Produits',statQual:'Qualité',statLivr:'Livraison',
-    f1:'Livraison rapide',f2:'Qualité garantie',f3:'Support WhatsApp',f4:'Échange facile',f4s:'Sans souci',
-    catChip:'KIDI BOOM Collection',catTitle:'Tous nos Articles',catSub:'Explorez toute notre collection',
-    orderBtn:'Commander sur WhatsApp',noProd:'Aucun produit pour le moment.',
-    aboutTitle:'Pourquoi KIDI BOOM ?',
-    a1t:'Qualité Premium',a1d:'Des matières douces et résistantes pour le confort de vos enfants',
-    a2t:'Prix Accessibles',a2d:'Le style sans sacrifier le budget familial',
-    a3t:'Livraison Rapide',a3d:'Commandez sur WhatsApp et recevez en 24-48h',
-    ctaTitle:'Commandez maintenant sur WhatsApp !',
-    ctaSub:'Rapide, simple et sécurisé. Contactez-nous directement.',
-    ctaBtn:'Discutez avec nous maintenant',
-    footerTagline:'La joie dans chaque vêtement',
-    footerLinks:'Liens rapides',footerContact:'Contactez-nous',footerRights:'Tous droits réservés',
-    fc1:'Livraison rapide',fc2:'Nouvelle Collection',
-    waMsg:'Bonjour KIDI BOOM 👋, je veux commander ce produit: ',
-    waTooltip:'Discutez avec nous 💬',
-    modalOrder:'Commander sur WhatsApp',
-    fbCta:'Vous pouvez voir plus de produits sur notre page Facebook',
-    tk1:'Nouvelle Collection Disponible',tk2:'Livraison 24 - 48h',
-    tk3:'Qualité Premium pour Enfants',tk4:'Commandez sur WhatsApp',tk5:'Deux Boutiques à votre service',
-    locTitle:'📍 Nos Boutiques',locSub:'Retrouvez-nous dans nos deux points de vente',
-    loc1Name:'Kidi boom - Bab dzaier',loc1Addr:'Bab Dzaier, Alger — Centre commercial',
-    loc2Name:'Kidi boom - Bab zaouia',loc2Addr:'Bab Zaouia, Alger',
-    productsCount:(n)=>n+' produit(s)',
-  },
-  ar:{
-    navHome:'الرئيسية',navProducts:'منتجاتنا',navAbout:'من نحن',
-    heroBadge:'✨ مجموعة جديدة',
-    heroT1:'الموضة لـ',heroT2:'أصغر الأمراء',
-    heroSub:'ملابس ملونة ومريحة وجميلة لأطفالكم',
-    heroCta1:'اكتشف المجموعة',heroCta2:'اطلب عبر واتساب',
-    statProd:'منتج',statQual:'جودة',statLivr:'توصيل',
-    f1:'توصيل سريع',f2:'جودة مضمونة',f3:'دعم واتساب',f4:'استبدال سهل',f4s:'بدون قلق',
-    catChip:'KIDI BOOM مجموعة',catTitle:'جميع منتجاتنا',catSub:'استكشف مجموعتنا الكاملة',
-    orderBtn:'اطلب عبر واتساب',noProd:'لا توجد منتجات حالياً.',
-    aboutTitle:'لماذا KIDI BOOM؟',
-    a1t:'جودة عالية',a1d:'أقمشة ناعمة ومتينة لراحة أطفالكم',
-    a2t:'أسعار مناسبة',a2d:'الأناقة دون الإخلال بميزانية الأسرة',
-    a3t:'توصيل سريع',a3d:'اطلب عبر واتساب واستلم خلال 24-48 ساعة',
-    ctaTitle:'اطلب الآن عبر واتساب!',
-    ctaSub:'سريع، سهل، ومضمون. تواصل معنا مباشرة.',
-    ctaBtn:'تحدث معنا الآن',
-    footerTagline:'السعادة في كل لباس',
-    footerLinks:'روابط سريعة',footerContact:'تواصل معنا',footerRights:'جميع الحقوق محفوظة',
-    fc1:'توصيل سريع',fc2:'مجموعة جديدة',
-    waMsg:'مرحباً KIDI BOOM 👋، أريد طلب هذا المنتج: ',
-    waTooltip:'تحدث معنا 💬',
-    modalOrder:'اطلب عبر واتساب',
-    fbCta:'يمكنك الاطلاع على المزيد من المنتجات عبر صفحتنا على فيسبوك',
-    tk1:'مجموعة جديدة متاحة',tk2:'توصيل خلال 24 - 48 ساعة',
-    tk3:'جودة عالية للأطفال',tk4:'اطلب عبر واتساب',tk5:'فرعان في خدمتك',
-    locTitle:'📍 متاجرنا',locSub:'زورونا في أحد فرعينا',
-    loc1Name:'Kidi boom - Bab dzaier',loc1Addr:'باب الدزاير، الجزائر — مركز تجاري',
-    loc2Name:'Kidi boom - Bab zaouia',loc2Addr:'باب الزاوية، الجزائر',
-    productsCount:(n)=>n+' منتج',
-  }
+  fr:{ navHome:'Accueil', navProducts:'Articles', navAbout:'Nos Magasins', heroBadge:'✨ Nouvelle Collection', heroT1:'La Mode pour', heroT2:'Petits Trésors', heroSub:'Vêtements colorés, confortables et adorables pour vos enfants', heroCta1:'Découvrir la Collection', catTitle:'Tous nos Articles', fbCta:'Voir plus sur Facebook', tk1:'Nouvelle Collection Disponible', tk2:'Livraison 24 - 48h', tk3:'Qualité Premium pour Enfants', tk4:'Commandez sur WhatsApp', tk5:'Deux Boutiques à votre service', locTitle:'📍 Nos Boutiques', loc1Name:'Kidi boom - Bab dzaier', loc1Addr:'Bab Dzaier, Alger', loc2Name:'Kidi boom - Bab zaouia', loc2Addr:'Bab Zaouia, Alger', waMsg:'Bonjour KIDI BOOM 👋, je veux commander: ', pCount:(n)=>n+' produit(s)' },
+  ar:{ navHome:'الرئيسية', navProducts:'منتجاتنا', navAbout:'متاجرنا', heroBadge:'✨ مجموعة جديدة', heroT1:'الموضة لـ', heroT2:'أصغر الأمراء', heroSub:'ملابس ملونة ومريحة وجميلة لأطفالكم', heroCta1:'اكتشف المجموعة', catTitle:'جميع منتجاتنا', fbCta:'المزيد من المنتجات على فيسبوك', tk1:'مجموعة جديدة متاحة', tk2:'توصيل خلال 24 - 48 ساعة', tk3:'جودة عالية للأطفال', tk4:'اطلب عبر واتساب', tk5:'فرعان في خدمتك', locTitle:'📍 متاجرنا', loc1Name:'Kidi boom - Bab dzaier', loc1Addr:'باب الدزاير، الجزائر', loc2Name:'Kidi boom - Bab zaouia', loc2Addr:'باب الزاوية، الجزائر', waMsg:'مرحباً KIDI BOOM 👋، أريد طلب هذا المنتج: ', pCount:(n)=>n+' منتج' }
 };
 
-let lang = localStorage.getItem('kidiboom-lang')||'fr';
-let currentModalProduct = null;
+let lang = localStorage.getItem('kidiboom-lang') || 'fr';
+let activeP = null;
 
-// ══════════════════════════════════════════════════════════
-//  دالة جلب المنتجات التلقائية من جوجل شيت
-// ══════════════════════════════════════════════════════════
+function setLang(l) { 
+  lang = l; 
+  localStorage.setItem('kidiboom-lang', l); 
+  document.documentElement.lang = l; 
+  document.documentElement.dir = l==='ar'?'rtl':'ltr'; 
+  
+  document.getElementById('btn-fr').classList.toggle('active', l==='fr');
+  document.getElementById('btn-ar').classList.toggle('active', l==='ar');
+  
+  applyTranslations(); 
+  renderProducts(); 
+  updateAllWALinks();
+}
+
+function applyTranslations() {
+  const t = TR[lang]; 
+  document.getElementById('nav-home').textContent = t.navHome; 
+  document.getElementById('nav-products').textContent = t.navProducts; 
+  document.getElementById('nav-about').textContent = t.navAbout; 
+  document.getElementById('hero-badge-text').textContent = t.heroBadge; 
+  document.getElementById('hero-t1').textContent = t.heroT1; 
+  document.getElementById('hero-t2').textContent = t.heroT2;
+  document.getElementById('hero-sub').textContent = t.heroSub; 
+  document.getElementById('hero-cta1').textContent = t.heroCta1; 
+  document.getElementById('cat-title').textContent = t.catTitle; 
+  document.getElementById('fb-cta-text').textContent = t.fbCta; 
+  document.getElementById('tk1').textContent = t.tk1; 
+  document.getElementById('tk2').textContent = t.tk2; 
+  document.getElementById('tk3').textContent = t.tk3; 
+  document.getElementById('tk4').textContent = t.tk4; 
+  document.getElementById('loc-title').textContent = t.locTitle; 
+  document.getElementById('loc1-name').textContent = t.loc1Name; 
+  document.getElementById('loc1-addr').textContent = t.loc1Addr; 
+  document.getElementById('loc2-name').textContent = t.loc2Name; 
+  document.getElementById('loc2-addr').textContent = t.loc2Addr; 
+}
+
+function updateAllWALinks() {
+  const generalMsg = encodeURIComponent(lang === 'fr' ? 'Bonjour KIDI BOOM 👋, je voudrais me renseigner sur vos produits.' : 'مرحباً KIDI BOOM 👋، أود الاستفسار عن منتجاتكم.');
+  const url = `https://wa.me/${CONFIG.whatsapp}?text=${generalMsg}`;
+  document.getElementById('wa-header-btn').href = url;
+  document.getElementById('footer-wa2').href = url;
+}
+
+// دالة الجلب المتطورة باستخدام Google Visualization API
 async function loadProducts() {
   try {
-    const response = await fetch(SHEET_CSV_URL);
-    const data = await response.text();
-    const rows = data.split(/\r?\n/);
-    rows.shift(); // لحذف السطر الأول الخاص بأسماء العواميد
+    const response = await fetch(API_URL);
+    const text = await response.text();
     
+    // تنظيف البيانات وتحويلها لـ JSON
+    const jsonString = text.substring(text.indexOf('{'), text.lastIndexOf('}') + 1);
+    const data = JSON.parse(jsonString);
+    const rows = data.table.rows;
+
     let products = [];
-    rows.forEach((rowStr, index) => {
-      const row = rowStr.split(',');
-      if(row.length >= 3 && row[0].trim() !== '') {
+    rows.forEach((row, index) => {
+      // التأكد من وجود الخلية الأولى (الاسم)
+      if (row.c && row.c[0] && row.c[0].v) {
         products.push({
           id: 'sheet-' + index,
-          name: row[0] ? row[0].trim() : '',
-          nameAr: row[1] ? row[1].trim() : '',
-          image: row[2] ? row[2].trim() : '',
-          whatsapp: row[3] ? row[3].trim() : ''
+          name: row.c[0] ? String(row.c[0].v).trim() : '',
+          nameAr: (row.c[1] && row.c[1].v) ? String(row.c[1].v).trim() : '',
+          image: (row.c[2] && row.c[2].v) ? String(row.c[2].v).trim() : '',
+          whatsapp: (row.c[3] && row.c[3].v) ? String(row.c[3].v).trim() : ''
         });
       }
     });
 
     localStorage.setItem('kidiboom-products', JSON.stringify(products));
-    renderProducts(); 
-    
-    // تحديث رقم الإحصائية في أعلى الموقع
-    const statEl = document.getElementById('stat-products');
-    if(statEl) statEl.textContent = products.length;
+    renderProducts();
 
   } catch (error) {
-    console.error('Erreur:', error);
+    console.error('Erreur de chargement:', error);
+    renderProducts(); // محاولة عرض المنتجات القديمة من الذاكرة في حالة الخطأ
   }
 }
 
-function getProducts(){
-  try{ return JSON.parse(localStorage.getItem('kidiboom-products')||'[]'); }
-  catch(e){ return []; }
-}
-
-function buildWA(productName, customWa){
-  const t = TR[lang];
-  const msg = encodeURIComponent(t.waMsg + productName);
-  const waNumber = customWa || CONFIG.whatsapp;
-  return `https://wa.me/${waNumber}?text=${msg}`;
-}
-
-function updateAllWALinks(){
-  const t = TR[lang];
-  const generalMsg = encodeURIComponent(t.waMsg.replace('commander ce produit:','me renseigner sur vos produits').replace('أريد طلب هذا المنتج:','الاستفسار عن منتجاتكم') + ' KIDI BOOM');
-  const generalUrl = `https://wa.me/${CONFIG.whatsapp}?text=${generalMsg}`;
-  ['wa-header-btn','hero-wa-btn','footer-wa','footer-wa2','cta-wa-btn'].forEach(id=>{
-    const el = document.getElementById(id);
-    if(el) el.href = generalUrl;
-  });
-  const fab = document.getElementById('wa-fab');
-  if(fab) fab.href = generalUrl;
-}
-
-function setLang(l){
-  lang = l;
-  localStorage.setItem('kidiboom-lang',l);
-  document.documentElement.lang = l;
-  document.documentElement.dir = l==='ar'?'rtl':'ltr';
-  document.getElementById('btn-fr').classList.toggle('active',l==='fr');
-  document.getElementById('btn-ar').classList.toggle('active',l==='ar');
-  applyTranslations();
-  renderProducts();
-  updateAllWALinks();
-}
-
-function applyTranslations(){
-  const t = TR[lang];
-  const set = (id,v)=>{ const el=document.getElementById(id); if(el) el.textContent=v; };
-  set('nav-home',t.navHome); set('nav-products',t.navProducts); set('nav-about',t.navAbout);
-  set('mob-home',t.navHome); set('mob-products',t.navProducts); set('mob-about',t.navAbout);
-  set('hero-badge-text',t.heroBadge); set('hero-t1',t.heroT1); set('hero-t2',t.heroT2);
-  set('hero-sub',t.heroSub); set('hero-cta1',t.heroCta1); set('hero-cta2',t.heroCta2);
-  set('stat-label1',t.statProd); set('stat-label2',t.statQual); set('stat-label3',t.statLivr);
-  set('f1-t',t.f1); set('f2-t',t.f2); set('f3-t',t.f3); set('f4-t',t.f4); set('f4-s',t.f4s);
-  set('cat-chip',t.catChip); set('cat-title',t.catTitle); set('cat-sub',t.catSub);
-  set('about-title',t.aboutTitle);
-  set('a1-t',t.a1t); set('a1-d',t.a1d); set('a2-t',t.a2t); set('a2-d',t.a2d);
-  set('a3-t',t.a3t); set('a3-d',t.a3d);
-  set('cta-title',t.ctaTitle); set('cta-sub',t.ctaSub); set('cta-btn-text',t.ctaBtn);
-  set('footer-tagline',t.footerTagline);
-  set('footer-links-title',t.footerLinks); set('footer-contact-title',t.footerContact);
-  set('fl-home',t.navHome); set('fl-products',t.navProducts); set('fl-about',t.navAbout);
-  set('fc1-text',t.fc1); set('fc2-text',t.fc2);
-  set('wa-fab-tooltip',t.waTooltip);
-  set('modal-wa-text',t.modalOrder);
-  const fbEl = document.getElementById('fb-cta-text');
-  if(fbEl) fbEl.textContent = t.fbCta;
-  set('tk1',t.tk1); set('tk2',t.tk2); set('tk3',t.tk3); set('tk4',t.tk4); set('tk5',t.tk5);
-  set('loc-title',t.locTitle); set('loc-sub',t.locSub);
-  set('loc1-name',t.loc1Name); set('loc1-addr',t.loc1Addr);
-  set('loc2-name',t.loc2Name); set('loc2-addr',t.loc2Addr);
-}
-
-function renderProducts(){
-  const t = TR[lang];
-  let prods = getProducts();
+function renderProducts() {
+  const prods = JSON.parse(localStorage.getItem('kidiboom-products') || '[]');
+  document.getElementById('products-count').textContent = TR[lang].pCount(prods.length);
   
-  const countEl = document.getElementById('products-count');
-  if(countEl) countEl.textContent = t.productsCount(prods.length);
-
   const grid = document.getElementById('products-grid');
-  if(!grid) return;
-  grid.innerHTML='';
-
-  if(prods.length===0){
-    grid.innerHTML=`<div class="no-products"><div class="big">🛍️</div><p>${t.noProd}</p></div>`;
+  if(prods.length === 0){
+    grid.innerHTML = `<p style="text-align:center; grid-column:1/-1;">Aucun produit pour le moment.</p>`;
     return;
   }
 
-  prods.forEach((p,i)=>{
-    const name = lang==='ar'&&p.nameAr ? p.nameAr : p.name;
-    const imgHtml = `<img src="${p.image}" alt="${name}" loading="lazy" onerror="this.src='https://i.postimg.cc/1XYdvkMG/652682383-903950365606757-2531729491342343311-n.jpg'">`;
-
-    const card = document.createElement('div');
-    card.className = 'product-card';
-    card.style.cssText = `animation:slideUp .5s ease ${i*.05}s both`;
-    card.innerHTML = `
+  grid.innerHTML = prods.map(p => `
+    <div class="product-card">
       <div class="card-img" onclick="openModal('${p.id}')">
-        ${imgHtml}
+        <img src="${p.image}" loading="lazy" onerror="this.src='https://i.postimg.cc/1XYdvkMG/652682383-903950365606757-2531729491342343311-n.jpg'">
       </div>
       <div class="card-body">
-        <div class="card-name">${name}</div>
+        <div class="card-name">${lang==='ar' && p.nameAr ? p.nameAr : p.name}</div>
         <button class="btn-order" onclick="orderProduct('${p.id}')">
-          <svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          ${t.orderBtn}
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp
         </button>
-      </div>`;
-    grid.appendChild(card);
-  });
+      </div>
+    </div>
+  `).join('');
 }
 
-function openModal(id){
-  const prods = getProducts();
-  const p = prods.find(x=>x.id===id);
-  if(!p) return;
-  currentModalProduct = p;
-  const name = lang==='ar'&&p.nameAr ? p.nameAr : p.name;
-  
-  const imgEl = document.getElementById('modal-img');
-  imgEl.innerHTML = `<img src="${p.image}" alt="${name}" style="width:100%;height:100%;object-fit:cover" onerror="this.src='https://i.postimg.cc/1XYdvkMG/652682383-903950365606757-2531729491342343311-n.jpg'">`;
+function openModal(id) {
+  const prods = JSON.parse(localStorage.getItem('kidiboom-products') || '[]');
+  activeP = prods.find(x => x.id === id);
+  if(!activeP) return;
 
+  const name = lang==='ar' && activeP.nameAr ? activeP.nameAr : activeP.name;
+  document.getElementById('modal-img').innerHTML = `<img src="${activeP.image}" style="width:100%; height:100%; object-fit:cover;" onerror="this.src='https://i.postimg.cc/1XYdvkMG/652682383-903950365606757-2531729491342343311-n.jpg'">`;
   document.getElementById('modal-name').textContent = name;
   document.getElementById('modal').classList.add('open');
 }
 
-function orderProduct(id){
-  const prods = getProducts();
-  const p = prods.find(x=>x.id===id);
+function orderProduct(id) {
+  const prods = JSON.parse(localStorage.getItem('kidiboom-products') || '[]');
+  const p = prods.find(x => x.id === id);
   if(!p) return;
-  const name = lang==='ar'&&p.nameAr ? p.nameAr : p.name;
-  window.open(buildWA(name, p.whatsapp),'_blank');
+  const name = lang==='ar' && p.nameAr ? p.nameAr : p.name;
+  const waNumber = p.whatsapp || CONFIG.whatsapp;
+  window.open(`https://wa.me/${waNumber}?text=${encodeURIComponent(TR[lang].waMsg + name)}`, '_blank');
 }
 
-function orderFromModal(){
-  if(!currentModalProduct) return;
-  const name = lang==='ar'&&currentModalProduct.nameAr ? currentModalProduct.nameAr : currentModalProduct.name;
-  window.open(buildWA(name, currentModalProduct.whatsapp),'_blank');
+function orderFromModal() { 
+  if(!activeP) return;
+  const name = lang==='ar' && activeP.nameAr ? activeP.nameAr : activeP.name;
+  const waNumber = activeP.whatsapp || CONFIG.whatsapp;
+  window.open(`https://wa.me/${waNumber}?text=${encodeURIComponent(TR[lang].waMsg + name)}`, '_blank');
 }
 
-function closeModal(e){ if(e.target===document.getElementById('modal')) closeModalDirect(); }
-function closeModalDirect(){
-  document.getElementById('modal').classList.remove('open');
-  currentModalProduct=null;
-}
+function closeModalDirect() { document.getElementById('modal').classList.remove('open'); activeP = null; }
+function scrollToSection(id) { document.getElementById(id).scrollIntoView({behavior:'smooth'}); }
 
-function scrollToSection(id){
-  const el = document.getElementById(id);
-  if(el){ const y = el.getBoundingClientRect().top+window.pageYOffset-100; window.scrollTo({top:y,behavior:'smooth'}); }
-}
+window.addEventListener('scroll', () => { document.getElementById('header').classList.toggle('scrolled', window.scrollY>10); });
 
-window.addEventListener('scroll',()=>{
-  document.getElementById('header').classList.toggle('scrolled',window.scrollY>10);
-});
+document.documentElement.lang = lang;
+document.documentElement.dir = lang==='ar'?'rtl':'ltr';
+document.getElementById('btn-fr').classList.toggle('active',lang==='fr');
+document.getElementById('btn-ar').classList.toggle('active',lang==='ar');
 
-function toggleMenu(){
-  document.getElementById('hamburger').classList.toggle('open');
-  document.getElementById('mobile-menu').classList.toggle('open');
-}
-
-function init(){
-  document.documentElement.lang = lang;
-  document.documentElement.dir = lang==='ar'?'rtl':'ltr';
-  document.getElementById(lang==='fr'?'btn-fr':'btn-ar').classList.add('active');
-  document.getElementById(lang==='fr'?'btn-ar':'btn-fr').classList.remove('active');
-  
-  applyTranslations();
-  loadProducts(); // سيقوم بجلب المنتجات تلقائياً بمجرد فتح الموقع
-  updateAllWALinks();
-}
-
-init();
+applyTranslations(); 
+updateAllWALinks();
+loadProducts(); // جلب تلقائي بمجرد الفتح
 </script>
 </body>
 </html>
-```[cite: 1]
