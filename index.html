@@ -21,9 +21,10 @@ body{font-family:var(--font-body);background:var(--bg);color:var(--dark);overflo
 #header.scrolled{background:rgba(255,255,255,.95);backdrop-filter:blur(16px);box-shadow:0 4px 24px rgba(124,58,237,.12);}
 .header-inner{max-width:1200px;margin:0 auto;padding:0 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
 .logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
-.logo-icon{width:42px;height:42px;background:linear-gradient(135deg,var(--purple),var(--pink));border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:20px;box-shadow:0 4px 14px rgba(124,58,237,.4);position:relative;transition:transform .3s ease;}
+.logo-icon{width:52px;height:52px;background:#fff;border-radius:14px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(124,58,237,.3);position:relative;transition:transform .3s ease; border: 2px solid var(--purple-pale); padding: 2px;}
 .logo-icon:hover{transform:scale(1.1) rotate(-5deg);}
-.logo-icon .badge{position:absolute;top:-5px;right:-5px;width:16px;height:16px;background:var(--yellow);border-radius:50%;font-size:9px;display:flex;align-items:center;justify-content:center;}
+.logo-icon img {width: 100%; height: 100%; object-fit: contain; border-radius: 12px;}
+.logo-icon .badge{position:absolute;top:-6px;right:-6px;width:18px;height:18px;background:var(--yellow);border-radius:50%;font-size:10px;display:flex;align-items:center;justify-content:center; color:#000; font-weight:bold; box-shadow:0 2px 4px rgba(0,0,0,0.2);}
 .logo-text{font-family:var(--font-display);font-size:1.6rem;line-height:1;}
 .logo-text span:first-child{color:var(--purple);}
 .logo-text span:last-child{color:var(--pink);}
@@ -184,7 +185,8 @@ html[dir=rtl] .category-badge{right:auto;left:12px;}
 .footer-inner{max-width:1200px;margin:0 auto;position:relative;z-index:1;}
 .footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px;margin-bottom:40px;}
 .footer-logo{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
-.footer-logo-icon{width:38px;height:38px;background:rgba(255,255,255,.15);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;}
+.footer-logo-icon{width:48px;height:48px;background:#fff;border-radius:12px;display:flex;align-items:center;justify-content:center; padding: 2px;}
+.footer-logo-icon img {width: 100%; height: 100%; object-fit: contain; border-radius: 10px;}
 .footer-logo-text{font-family:var(--font-display);font-size:1.4rem;}
 .footer-logo-text span:first-child{color:#c4b5fd;}
 .footer-logo-text span:last-child{color:#f9a8d4;}
@@ -199,6 +201,13 @@ html[dir=rtl] .category-badge{right:auto;left:12px;}
 .footer-links a::before{content:'';width:6px;height:6px;background:var(--pink);border-radius:50%;flex-shrink:0;}
 .footer-links a:hover{color:#fff;}
 .footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:22px;text-align:center;color:#a5b4fc;font-size:.82rem;font-weight:600;}
+
+/* --- تنسيقات حقوق التطوير (Powered By) --- */
+.powered-by{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:16px;font-size:0.9rem;color:#c4b5fd;font-weight:700;}
+.powered-link{display:flex;align-items:center;background:#fff;padding:4px 10px;border-radius:8px;transition:all .3s ease;text-decoration:none;box-shadow:0 4px 12px rgba(0,0,0,.2);}
+.powered-link:hover{transform:translateY(-3px);box-shadow:0 8px 16px rgba(0,0,0,.3);}
+.powered-link img{height:32px;width:auto;object-fit:contain;}
+
 #wa-fab{position:fixed;bottom:24px;right:24px;z-index:997;animation:float 2.5s ease-in-out infinite;}
 html[dir=rtl] #wa-fab{right:auto;left:24px;}
 .wa-fab-ring{position:absolute;inset:0;border-radius:50%;background:rgba(34,197,94,.35);animation:pulseRing 2s ease-out infinite;}
@@ -219,13 +228,10 @@ html[dir=rtl] .wa-fab-tooltip{right:auto;left:66px;}
 .modal-img img{width:100%;height:100%;object-fit:cover;}
 .modal-body{padding:20px 24px 28px;}
 .modal-name{font-family:var(--font-display);font-size:1.6rem;color:#1e1b4b;margin-bottom:12px;}
-
-/* NEW CSS FOR MODAL DESC & SIZE */
 #modal-desc {color:#6d28d9; font-size:0.95rem; margin-bottom:12px; line-height:1.6; font-weight:600;}
 #modal-size-container {display:none; margin-bottom:18px; align-items:center; gap:8px;}
 #size-label {font-weight:800; font-size:0.9rem; color:#1e1b4b;}
 #modal-size {background:#f3f0ff; color:#7c3aed; padding:4px 12px; border-radius:8px; font-size:0.9rem; font-weight:700;}
-
 .modal-wa-btn{width:100%;display:flex;align-items:center;justify-content:center;gap:10px;background:linear-gradient(135deg,#22c55e,#16a34a);color:#fff;font-weight:800;font-size:1rem;padding:14px;border-radius:var(--radius);border:none;cursor:pointer;font-family:var(--font-body);margin-top:10px;box-shadow:0 6px 20px rgba(34,197,94,.4);transition:all .3s ease;}
 .modal-wa-btn:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(34,197,94,.5);}
 .modal-wa-btn svg{width:20px;height:20px;fill:#fff;}
@@ -278,7 +284,10 @@ html[dir=rtl] #scroll-top{right:auto;left:24px;}
 <header id="header">
   <div class="header-inner">
     <a href="#" class="logo" onclick="scrollToSection('hero')">
-      <div class="logo-icon"><span>👕</span><div class="badge">✨</div></div>
+      <div class="logo-icon">
+        <img src="logo.png" alt="KIDI BOOM" onerror="this.src='https://i.postimg.cc/4xBZvJSL/logo.jpg'">
+        <div class="badge">✨</div>
+      </div>
       <div class="logo-text"><span>KIDI</span><span> BOOM</span></div>
     </a>
     <nav>
@@ -339,7 +348,6 @@ html[dir=rtl] #scroll-top{right:auto;left:24px;}
         </a>
         <a href="#" id="hero-wa-btn" class="btn-wa" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" style="width:18px;height:18px;fill:#16a34a"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          <span id="hero-cta2">Commander sur WhatsApp</span>
         </a>
       </div>
       <div class="hero-stats">
@@ -481,14 +489,17 @@ html[dir=rtl] #scroll-top{right:auto;left:24px;}
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="footer-logo">
-          <div class="footer-logo-icon">👕</div>
+          <div class="footer-logo-icon">
+            <img src="logo.png" alt="KIDI BOOM" onerror="this.src='https://i.postimg.cc/4xBZvJSL/logo.jpg'">
+          </div>
           <div class="footer-logo-text"><span>KIDI</span><span> BOOM</span></div>
         </div>
         <p class="footer-tagline" id="footer-tagline">La joie dans chaque vêtement</p>
         <div class="footer-socials">
           <a href="https://www.facebook.com/profile.php?id=100079754059675" target="_blank" rel="noopener" class="social-btn"><svg viewBox="0 0 24 24" style="width:18px;height:18px;fill:currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
           <a href="https://www.instagram.com/kidiboom_" target="_blank" rel="noopener" class="social-btn"><svg viewBox="0 0 24 24" style="width:18px;height:18px;fill:currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
-          <a href="https://www.tiktok.com/@kidi.boom" target="_blank" rel="noopener" class="social-header-icon tiktok"><svg viewBox="0 0 24 24" fill="#010101"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.26 8.26 0 004.83 1.56V6.79a4.85 4.85 0 01-1.06-.1z"/></svg></a>
+          <a href="https://www.tiktok.com/@kidi.boom" target="_blank" rel="noopener" class="social-btn"><svg viewBox="0 0 24 24" fill="#010101"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.26 8.26 0 004.83 1.56V6.79a4.85 4.85 0 01-1.06-.1z"/></svg></a>
+          <a href="mailto:kidiboom@hotmail.fr" class="social-btn"><svg viewBox="0 0 24 24" style="width:18px;height:18px;fill:currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
         </div>
         <p class="email-text">kidiboom@hotmail.fr</p>
       </div>
@@ -510,9 +521,21 @@ html[dir=rtl] #scroll-top{right:auto;left:24px;}
         </ul>
       </div>
     </div>
+    
     <div class="footer-bottom">
-      © KIDI BOOM. <span id="footer-rights">Tous droits réservés</span>.
+      <div style="margin-bottom: 12px;">© KIDI BOOM. <span id="footer-rights">Tous droits réservés</span>.</div>
+      
+      <!-- حقوق التطوير: Powered By Service Hub -->
+      <div class="powered-by">
+        <span>Powered By</span>
+        <a href="https://www.facebook.com/Service.Hub100/" target="_blank" rel="noopener" class="powered-link">
+          <!-- تأكد من وضع صورة لوجو الخدمة باسم service-hub.png في نفس المجلد -->
+          <img src="service-hub.png" alt="Service Hub">
+        </a>
+        <span>2026</span>
+      </div>
     </div>
+
   </div>
 </footer>
 
@@ -537,7 +560,6 @@ html[dir=rtl] #scroll-top{right:auto;left:24px;}
     <div class="modal-body">
       <div class="modal-name" id="modal-name"></div>
       
-      <!-- NEW ELEMENTS: DESCRIPTION & SIZE -->
       <div id="modal-desc"></div>
       <div id="modal-size-container">
         <span id="size-label">Tailles disponibles:</span>
@@ -645,11 +667,11 @@ let currentModalProduct = null;
 let currentFilter = 'all';
 
 // ══════════════════════════════════════════════════════════
-//  دالة جلب المنتجات (تحديث الترتيب الجديد للأعمدة)
+//  دالة جلب المنتجات 
 // ══════════════════════════════════════════════════════════
 async function loadProducts() {
   try {
-    const response = await fetch(SHEET_CSV_URL);
+    const response = await fetch(SHEET_CSV_URL + '&t=' + new Date().getTime(), { cache: "no-store" });
     if (!response.ok) throw new Error('Network response was not ok');
     const data = await response.text();
     const rows = data.split(/\r?\n/);
@@ -665,12 +687,12 @@ async function loadProducts() {
           nameAr: row[1] ? row[1].trim() : '',
           catFr: row[2] ? row[2].trim() : '',
           catAr: row[3] ? row[3].trim() : '',
-          descFr: row[4] ? row[4].trim() : '',   // NEW: الوصف فرنسي
-          descAr: row[5] ? row[5].trim() : '',   // NEW: الوصف عربي
-          sizeFr: row[6] ? row[6].trim() : '',   // NEW: المقاس فرنسي
-          sizeAr: row[7] ? row[7].trim() : '',   // NEW: المقاس عربي
-          image: row[8] ? row[8].trim() : '',    // ترتيب جديد
-          whatsapp: row[9] ? row[9].trim() : ''  // ترتيب جديد
+          descFr: row[4] ? row[4].trim() : '', 
+          descAr: row[5] ? row[5].trim() : '', 
+          sizeFr: row[6] ? row[6].trim() : '', 
+          sizeAr: row[7] ? row[7].trim() : '', 
+          image: row[8] ? row[8].trim() : '',  
+          whatsapp: row[9] ? row[9].trim() : ''
         });
       }
     });
@@ -701,9 +723,6 @@ function filterProducts(cat) {
   renderProducts();
 }
 
-// ══════════════════════════════════════════════════════════
-//  دالة بناء رسالة الواتساب (إضافة المقاسات والصورة)
-// ══════════════════════════════════════════════════════════
 function buildWA(productName, customWa, imageUrl, sizeInfo){
   const t = TR[lang];
   let textMessage = t.waMsg + productName;
@@ -809,7 +828,7 @@ function renderProducts(){
     const catName = lang==='ar'&&p.catAr ? p.catAr : p.catFr;
     
     const catBadge = catName ? `<div class="category-badge">${catName}</div>` : '';
-    const imgHtml = `<img src="${p.image}" alt="${name}" loading="lazy" onerror="this.src='https://i.postimg.cc/1XYdvkMG/652682383-903950365606757-2531729491342343311-n.jpg'">`;
+    const imgHtml = `<img src="${p.image}" alt="${name}" loading="lazy" onerror="this.src='logo.png'">`;
 
     const card = document.createElement('div');
     card.className = 'product-card';
@@ -842,12 +861,11 @@ function openModal(id){
   const size = lang==='ar'&&p.sizeAr ? p.sizeAr : p.sizeFr;
   
   const imgEl = document.getElementById('modal-img');
-  imgEl.innerHTML = `<img src="${p.image}" alt="${name}" style="width:100%;height:100%;object-fit:cover" onerror="this.src='https://i.postimg.cc/1XYdvkMG/652682383-903950365606757-2531729491342343311-n.jpg'">`;
+  imgEl.innerHTML = `<img src="${p.image}" alt="${name}" style="width:100%;height:100%;object-fit:cover" onerror="this.src='logo.png'">`;
 
   document.getElementById('modal-name').textContent = name;
   document.getElementById('modal-badges').innerHTML = catName ? `<span style="background:var(--purple-pale);color:var(--purple);padding:4px 12px;border-radius:8px;font-size:0.8rem;font-weight:bold;">${catName}</span>` : '';
   
-  // NEW: عرض الوصف والمقاسات
   document.getElementById('modal-desc').textContent = desc || '';
   
   const sizeContainer = document.getElementById('modal-size-container');
