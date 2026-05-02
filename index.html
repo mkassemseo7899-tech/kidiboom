@@ -124,6 +124,13 @@ html[dir=rtl] .mobile-menu a, html[dir=rtl] .mobile-menu button{text-align:right
 .section-title::after{content:'';position:absolute;bottom:-6px;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--purple),var(--pink),var(--yellow));border-radius:2px;}
 .section-sub{margin-top:16px;color:#6d28d9;font-weight:600;font-size:1rem;}
 .products-count{font-size:.82rem;color:var(--purple-light);font-weight:700;margin-bottom:20px;}
+
+/* --- NEW FILTER BAR CSS --- */
+.filter-bar{display:flex;justify-content:center;gap:10px;margin-bottom:30px;flex-wrap:wrap;}
+.filter-btn{padding:8px 20px;border-radius:99px;border:2px solid var(--purple-pale);background:#fff;color:var(--purple);font-weight:700;font-family:var(--font-body);font-size:.9rem;cursor:pointer;transition:all 0.3s ease;}
+.filter-btn:hover{background:var(--purple-pale);}
+.filter-btn.active{background:var(--purple);color:#fff;border-color:var(--purple);box-shadow:0 4px 14px rgba(124,58,237,.3);}
+
 .products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:22px;}
 .no-products{text-align:center;padding:80px 20px;grid-column:1/-1;}
 .no-products .big{font-size:4rem;margin-bottom:12px;}
@@ -133,11 +140,8 @@ html[dir=rtl] .mobile-menu a, html[dir=rtl] .mobile-menu button{text-align:right
 .card-img{position:relative;overflow:hidden;height:220px;background:linear-gradient(135deg,#f5f3ff,#fce7f3);}
 .card-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease;}
 .product-card:hover .card-img img{transform:scale(1.08);}
-
-/* --- NEW CATEGORY BADGE STYLE --- */
 .category-badge{position:absolute;top:12px;right:12px;background:rgba(255,255,255,.9);color:var(--purple);padding:4px 12px;border-radius:99px;font-size:.75rem;font-weight:800;box-shadow:0 4px 10px rgba(0,0,0,.1);z-index:2;backdrop-filter:blur(4px);}
 html[dir=rtl] .category-badge{right:auto;left:12px;}
-
 .card-body{padding:14px;}
 .card-name{font-weight:800;font-size:.95rem;color:#1e1b4b;line-height:1.35;margin-bottom:12px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
 .btn-order{width:100%;display:flex;align-items:center;justify-content:center;gap:7px;background:linear-gradient(135deg,#22c55e,#16a34a);color:#fff;font-weight:800;font-size:.85rem;padding:11px;border-radius:var(--radius);border:none;cursor:pointer;font-family:var(--font-body);box-shadow:0 4px 14px rgba(34,197,94,.3);transition:all .3s ease;position:relative;overflow:hidden;}
@@ -211,7 +215,7 @@ html[dir=rtl] .wa-fab-tooltip{right:auto;left:66px;}
 .modal-backdrop{display:none;position:fixed;inset:0;background:rgba(30,27,75,.65);backdrop-filter:blur(6px);z-index:1000;align-items:center;justify-content:center;padding:20px;}
 .modal-backdrop.open{display:flex;}
 .modal{background:#fff;border-radius:var(--radius-xl);width:100%;max-width:560px;max-height:90vh;overflow-y:auto;box-shadow:0 32px 80px rgba(0,0,0,.25);animation:bounceIn .4s ease;}
-.modal-header{padding:24px 24px 0;display:flex;align-items:flex-start;justify-content:flex-between;gap:12px;}
+.modal-header{padding:24px 24px 0;display:flex;align-items:flex-start;justify-content:space-between;gap:12px;}
 .modal-close{width:36px;height:36px;border-radius:10px;background:var(--purple-pale);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:var(--purple);flex-shrink:0;transition:all .2s;}
 .modal-close:hover{background:var(--purple);color:#fff;}
 .modal-img{height:280px;background:linear-gradient(135deg,#f5f3ff,#fce7f3);overflow:hidden;}
@@ -228,8 +232,7 @@ html[dir=rtl] #scroll-top{right:auto;left:24px;}
 @media(max-width:900px){
   nav,#header .wa-header-btn{display:none!important;}
   .hamburger{display:flex!important;}
-  .hero-inner{grid-template-columns:1fr;gap:40px;text-align:center;}
-  html[dir=rtl] .hero-inner{text-align:center;}
+  .hero-inner{grid-template-columns:1fr;gap:40px;}
   .hero-btns{justify-content:center;}
   .hero-stats{justify-content:center;}
   .hero-sub{margin-left:auto;margin-right:auto;}
@@ -245,7 +248,6 @@ html[dir=rtl] #scroll-top{right:auto;left:24px;}
   .card-img{height:180px;}
   .about-cta{padding:32px 20px;}
   .about-cta-title{font-size:1.5rem;}
-  #filter-bar{flex-direction:column;align-items:flex-start;}
   .fb-cta-btn{padding:14px 20px;font-size:0.9rem;}
 }
 </style>
@@ -260,7 +262,6 @@ html[dir=rtl] #scroll-top{right:auto;left:24px;}
     <span class="ticker-item">👕 <span id="tk3">Qualité Premium pour Enfants</span></span><span class="ticker-item ticker-sep">◆</span>
     <span class="ticker-item">💬 <span id="tk4">Commandez sur WhatsApp</span></span><span class="ticker-item ticker-sep">◆</span>
     <span class="ticker-item">🏪 <span id="tk5">Deux Boutiques à votre service</span></span><span class="ticker-item ticker-sep">◆</span>
-    <!-- Duplicate for infinite loop -->
     <span class="ticker-item">✨ <span>Nouvelle Collection Disponible</span></span><span class="ticker-item ticker-sep">◆</span>
     <span class="ticker-item">🚚 <span>Livraison 24 - 48h</span></span><span class="ticker-item ticker-sep">◆</span>
     <span class="ticker-item">👕 <span>Qualité Premium pour Enfants</span></span><span class="ticker-item ticker-sep">◆</span>
@@ -345,7 +346,6 @@ html[dir=rtl] #scroll-top{right:auto;left:24px;}
     <div class="hero-image">
       <div class="hero-img-wrap">
         <div class="hero-img-card">
-          <!-- Logo Fix -->
           <img src="logo.png" alt="KIDI BOOM Logo" onerror="this.src='https://i.postimg.cc/4xBZvJSL/logo.jpg'" id="main-logo-img">
         </div>
         <div class="hero-floating-card fc2">
@@ -381,6 +381,13 @@ html[dir=rtl] #scroll-top{right:auto;left:24px;}
       <div class="section-chip">🛍️ <span id="cat-chip">KIDI BOOM Collection</span></div>
       <h2 class="section-title" id="cat-title">Tous nos Articles</h2>
       <p class="section-sub" id="cat-sub">Explorez toute notre collection</p>
+    </div>
+
+    <!-- NEW FILTER BAR -->
+    <div class="filter-bar" id="filter-bar">
+      <button class="filter-btn active" onclick="filterProducts('all')" id="btn-filter-all">Tous</button>
+      <button class="filter-btn" onclick="filterProducts('girls')" id="btn-filter-girls">Filles</button>
+      <button class="filter-btn" onclick="filterProducts('boys')" id="btn-filter-boys">Garçons</button>
     </div>
 
     <p class="products-count" id="products-count"></p>
@@ -581,6 +588,7 @@ const TR = {
     loc1Name:'Kidi boom - Bab dzaier',loc1Addr:'Bab Dzaier, Alger — Centre commercial',
     loc2Name:'Kidi boom - Bab zaouia',loc2Addr:'Bab Zaouia, Alger',
     productsCount:(n)=>n+' produit(s)',
+    filterAll:'Tous', filterGirls:'Filles', filterBoys:'Garçons'
   },
   ar:{
     navHome:'الرئيسية',navProducts:'منتجاتنا',navAbout:'من نحن',
@@ -612,11 +620,13 @@ const TR = {
     loc1Name:'Kidi boom - Bab dzaier',loc1Addr:'باب الدزاير، الجزائر — مركز تجاري',
     loc2Name:'Kidi boom - Bab zaouia',loc2Addr:'باب الزاوية، الجزائر',
     productsCount:(n)=>n+' منتج',
+    filterAll:'الكل', filterGirls:'بنات', filterBoys:'بنين'
   }
 };
 
 let lang = localStorage.getItem('kidiboom-lang')||'fr';
 let currentModalProduct = null;
+let currentFilter = 'all';
 
 // ══════════════════════════════════════════════════════════
 //  دالة جلب المنتجات 
@@ -660,6 +670,15 @@ async function loadProducts() {
 function getProducts(){
   try{ return JSON.parse(localStorage.getItem('kidiboom-products')||'[]'); }
   catch(e){ return []; }
+}
+
+function filterProducts(cat) {
+  currentFilter = cat;
+  document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+  if(cat === 'all') document.getElementById('btn-filter-all').classList.add('active');
+  if(cat === 'girls') document.getElementById('btn-filter-girls').classList.add('active');
+  if(cat === 'boys') document.getElementById('btn-filter-boys').classList.add('active');
+  renderProducts();
 }
 
 function buildWA(productName, customWa){
@@ -719,25 +738,31 @@ function applyTranslations(){
   set('loc-title',t.locTitle); set('loc-sub',t.locSub);
   set('loc1-name',t.loc1Name); set('loc1-addr',t.loc1Addr);
   set('loc2-name',t.loc2Name); set('loc2-addr',t.loc2Addr);
+  set('btn-filter-all', t.filterAll); set('btn-filter-girls', t.filterGirls); set('btn-filter-boys', t.filterBoys);
 }
 
 function renderProducts(){
   const t = TR[lang];
   let prods = getProducts();
   
+  let prodsToRender = prods.filter(p => {
+    if(currentFilter === 'all') return true;
+    return p.catFr && p.catFr.toLowerCase().includes(currentFilter);
+  });
+
   const countEl = document.getElementById('products-count');
-  if(countEl) countEl.textContent = t.productsCount(prods.length);
+  if(countEl) countEl.textContent = t.productsCount(prodsToRender.length);
 
   const grid = document.getElementById('products-grid');
   if(!grid) return;
   grid.innerHTML='';
 
-  if(prods.length===0){
+  if(prodsToRender.length===0){
     grid.innerHTML=`<div class="no-products"><div class="big">🛍️</div><p>${t.noProd}</p></div>`;
     return;
   }
 
-  prods.forEach((p,i)=>{
+  prodsToRender.forEach((p,i)=>{
     const name = lang==='ar'&&p.nameAr ? p.nameAr : p.name;
     const catName = lang==='ar'&&p.catAr ? p.catAr : p.catFr;
     
