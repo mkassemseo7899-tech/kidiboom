@@ -573,7 +573,7 @@ const CONFIG = {
 // ══════════════════════════════════════════════════════════
 // الرابط الصحيح لجلب البيانات
 // ══════════════════════════════════════════════════════════
-const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQzlArTANRbwpL6_tHgoqQdM5K8hDUuXn6Eb60deWmBt-yHeZo42U46XsoauhF7hSWvKqiuCje1COvY/pub?output=csv';
+const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQzlArTANRbwpL6_tHgoqQdM5K8hDUuXn6Eb60deWmBt-yHeZo42U46XsoauhF7hSWvKqiuCje1COvY/pub?gid=410786477&single=true&output=csv';
 
 // ══════════════════════════════════════════════════════════
 //  TRADUCTIONS
@@ -663,20 +663,25 @@ async function loadProducts() {
     
     let products = [];
     rows.forEach((rowStr, index) => {
-      const row = rowStr.split(',');
-      if(row.length >= 3 && row[0].trim() !== '') {
+      // ريجكس لتقسيم السطر مع الحفاظ على النصوص داخل علامات التنصيص
+      const row = rowStr.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
+      
+      // التأكد من وجود بيانات (الاسم يبدأ من العمود رقم 1 لأن 0 هو الطابع الزمني)
+      if(row.length >= 3 && row[1] && row[1].trim() !== '') { 
         products.push({
-          id: 'sheet-' + index,
-          name: row[0] ? row[0].trim() : '',
-          nameAr: row[1] ? row[1].trim() : '',
-          catFr: row[2] ? row[2].trim() : '',
-          catAr: row[3] ? row[3].trim() : '',
-          descFr: row[4] ? row[4].trim() : '', 
-          descAr: row[5] ? row[5].trim() : '', 
-          sizeFr: row[6] ? row[6].trim() : '', 
-          sizeAr: row[7] ? row[7].trim() : '', 
-          image: row[8] ? row[8].trim() : '',  
-          whatsapp: row[9] ? row[9].trim() : ''
+          id: 'p-' + index,
+          // الترتيب بناءً على الخانات العشرة في الفورم + الطابع الزمني
+          name: row[1] ? row[1].trim().replace(/^"|"$/g, "") : '',
+          nameAr: row[2] ? row[2].trim().replace(/^"|"$/g, "") : '',
+          catFr: row[3] ? row[3].trim().replace(/^"|"$/g, "") : '',
+          catAr: row[4] ? row[4].trim().replace(/^"|"$/g, "") : '',
+          descFr: row[5] ? row[5].trim().replace(/^"|"$/g, "") : '',
+          descAr: row[6] ? row[6].trim().replace(/^"|"$/g, "") : '',
+          sizeFr: row[7] ? row[7].trim().replace(/^"|"$/g, "") : '',
+          sizeAr: row[8] ? row[8].trim().replace(/^"|"$/g, "") : '',
+          image: row[9] ? row[9].trim().replace(/^"|"$/g, "") : '',
+          // ميزة الواتساب الذكية: إذا كانت الخانة فارغة، يستخدم الرقم الافتراضي
+          whatsapp: (row[10] && row[10].trim() !== "") ? row[10].trim().replace(/^"|"$/g, "") : CONFIG.whatsapp
         });
       }
     });
