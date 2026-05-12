@@ -666,11 +666,22 @@ async function loadProducts() {
       // ريجكس لتقسيم السطر مع الحفاظ على النصوص داخل علامات التنصيص
       const row = rowStr.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
       
-      // التأكد من وجود بيانات (الاسم يبدأ من العمود رقم 1 لأن 0 هو الطابع الزمني)
-      if(row.length >= 3 && row[1] && row[1].trim() !== '') { 
+      // الترتيب الصحيح 100% متطابق مع خانات جوجل فورم الـ 10 (مع حساب خانة الطابع الزمني في العمود A)
+      // row[0] = Timestamp
+      // row[1] = Nom (FR)
+      // row[2] = الاسم (AR)
+      // row[3] = Catégorie (FR)
+      // row[4] = القسم (AR)
+      // row[5] = Description (FR)
+      // row[6] = الوصف (AR)
+      // row[7] = Tailles (FR)
+      // row[8] = المقاسات (AR)
+      // row[9] = Lien Image
+      // row[10]= Numéro WhatsApp
+
+      if(row.length >= 9 && row[1] && row[1].trim() !== '') { 
         products.push({
           id: 'p-' + index,
-          // الترتيب بناءً على الخانات العشرة في الفورم + الطابع الزمني
           name: row[1] ? row[1].trim().replace(/^"|"$/g, "") : '',
           nameAr: row[2] ? row[2].trim().replace(/^"|"$/g, "") : '',
           catFr: row[3] ? row[3].trim().replace(/^"|"$/g, "") : '',
@@ -680,7 +691,6 @@ async function loadProducts() {
           sizeFr: row[7] ? row[7].trim().replace(/^"|"$/g, "") : '',
           sizeAr: row[8] ? row[8].trim().replace(/^"|"$/g, "") : '',
           image: row[9] ? row[9].trim().replace(/^"|"$/g, "") : '',
-          // ميزة الواتساب الذكية: إذا كانت الخانة فارغة، يستخدم الرقم الافتراضي
           whatsapp: (row[10] && row[10].trim() !== "") ? row[10].trim().replace(/^"|"$/g, "") : CONFIG.whatsapp
         });
       }
