@@ -674,28 +674,25 @@ function setLang(l){
   document.getElementById('btn-fr').classList.toggle('active', l==='fr');
   document.getElementById('btn-ar').classList.toggle('active', l==='ar');
   applyTranslations(); renderProducts(); updateAllWALinks();
-}
-
-function applyTranslations(){
-  const t = TR[lang];
-  document.querySelectorAll('[data-tr]').forEach(el => {
-    const key = el.getAttribute('data-tr');
-    if (t[key]) el.textContent = t[key];
-  });
-}
-
 function renderProducts(){
-  const t = TR[lang]; let prods = getProducts();
+  const t = TR[lang]; 
+  let prods = getProducts();
+  
   let filtered = prods.filter(p => {
-    if(currentFilter === 'all') return true;
+    if(currentFilter === 'all') return true; 
+    
     let s = ((p.catFr||'') + (p.catAr||'')).toLowerCase();
-    return currentFilter==='girls' ? (s.includes('girl')||s.includes('fille')||s.includes('بنات')) : (s.includes('boy')||s.includes('garcon')||s.includes('بنين')||s.includes('ولاد'));
+    if(currentFilter === 'girls') return s.includes('girl') || s.includes('fille') || s.includes('بنات');
+    if(currentFilter === 'boys') return s.includes('boy') || s.includes('garcon') || s.includes('بنين') || s.includes('ولاد');
+    
+    return true;
   });
   
   if(document.getElementById('stat-products')) document.getElementById('stat-products').textContent = prods.length;
   if(document.getElementById('products-count')) document.getElementById('products-count').textContent = filtered.length + (lang==='ar' ? ' منتج' : ' produit(s)');
   
-  const grid = document.getElementById('products-grid'); if(!grid) return;
+  const grid = document.getElementById('products-grid'); 
+  if(!grid) return;
   grid.innerHTML = filtered.length ? '' : `<div class="no-products"><div class="big">🛍️</div><p>${t.noProd}</p></div>`;
   
   filtered.forEach((p,i)=>{
@@ -720,6 +717,7 @@ function renderProducts(){
       </div>`;
     grid.appendChild(card);
   });
+}
 }
 
 function openModal(id){
