@@ -6,6 +6,22 @@
 <title>KIDI BOOM — Vêtements Enfants</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&family=Cairo:wght@400;500;600;700;800;900&family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet"/>
+
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '977154991860484');
+  fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=977154991860484&ev=PageView&noscript=1"
+/></noscript>
 <style>
 :root{--purple:#7C3AED;--purple-light:#A78BFA;--purple-pale:#EDE9FE;--pink:#EC4899;--pink-light:#FBCFE8;--yellow:#FCD34D;--mint:#34D399;--sky:#38BDF8;--green:#22C55E;--green-dark:#16A34A;--bg:#FAF5FF;--white:#fff;--dark:#1E1B4B;--radius:18px;--radius-lg:28px;--radius-xl:40px;--shadow:0 8px 32px rgba(124,58,237,.15);--shadow-hover:0 20px 48px rgba(124,58,237,.28);--font-display:'Fredoka One',cursive;--font-body:'Nunito',sans-serif;}
 html[lang=ar]{--font-display:'Tajawal','Cairo',sans-serif;--font-body:'Tajawal','Cairo',sans-serif;}
@@ -67,16 +83,13 @@ html[dir=rtl] .mobile-menu a, html[dir=rtl] .mobile-menu button{text-align:right
 @keyframes slideUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
 @keyframes blobMorph{0%,100%{border-radius:60% 40% 30% 70%/60% 30% 70% 40%}25%{border-radius:30% 60% 70% 40%/50% 60% 30% 60%}50%{border-radius:50% 60% 30% 60%/30% 60% 70% 40%}75%{border-radius:60% 40% 60% 30%/70% 30% 60% 50%}}
-@keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
 @keyframes pulseRing{0%{transform:scale(1);opacity:.7}100%{transform:scale(1.6);opacity:0}}
 @keyframes wiggle{0%,100%{transform:rotate(-8deg)}50%{transform:rotate(8deg)}}
 @keyframes bounceIn{0%{transform:scale(.5);opacity:0}60%{transform:scale(1.1)}80%{transform:scale(.95)}100%{transform:scale(1);opacity:1}}
-@keyframes gradientMove{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
 .animate-float{animation:float 3s ease-in-out infinite}
 .animate-floatB{animation:floatB 3.5s ease-in-out infinite .4s}
 .animate-spin{animation:spin 12s linear infinite}
 .animate-slideUp{animation:slideUp .6s ease both}
-.animate-wiggle{animation:wiggle .6s ease-in-out infinite}
 #hero{min-height:100vh;background:linear-gradient(135deg,#f5f3ff 0%,#fdf2f8 50%,#fefce8 100%);display:flex;align-items:center;padding:180px 20px 60px;position:relative;overflow:hidden;}
 .hero-bg-blob{position:absolute;pointer-events:none;}
 .blob1{top:-100px;right:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(167,139,250,.25),transparent 70%);animation:blobMorph 10s ease-in-out infinite;}
@@ -181,7 +194,6 @@ html[dir=rtl] .category-badge{right:auto;left:12px;}
 .loc-map-btn{display:inline-flex;align-items:center;gap:8px;background:var(--purple);color:#fff;padding:10px 20px;border-radius:99px;text-decoration:none;font-weight:800;font-size:.9rem;margin-top:15px;transition:all .3s ease;}
 .loc-map-btn:hover{background:var(--pink);transform:translateY(-2px);color:#fff;}
 #footer{background:linear-gradient(135deg,#1e1b4b,#312e81,#4c1d95);color:#fff;padding:60px 20px 28px;position:relative;overflow:hidden;}
-#footer::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,.04) 1px,transparent 1px);background-size:24px 24px;}
 .footer-inner{max-width:1200px;margin:0 auto;position:relative;z-index:1;}
 .footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px;margin-bottom:40px;}
 .footer-logo{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
@@ -201,14 +213,11 @@ html[dir=rtl] .category-badge{right:auto;left:12px;}
 .footer-links a::before{content:'';width:6px;height:6px;background:var(--pink);border-radius:50%;flex-shrink:0;}
 .footer-links a:hover{color:#fff;}
 .footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:22px;text-align:center;color:#a5b4fc;font-size:.82rem;font-weight:600;}
-
-/* --- Powered By --- */
 .powered-by{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:16px;font-size:0.9rem;color:#c4b5fd;font-weight:700;}
 .powered-link{display:flex;align-items:center;background:#fff;padding:4px 10px;border-radius:8px;transition:all .3s ease;text-decoration:none;box-shadow:0 4px 12px rgba(0,0,0,.2);}
 .powered-link:hover{transform:translateY(-3px);box-shadow:0 8px 16px rgba(0,0,0,.3);}
 .powered-link img{height:32px;width:auto;object-fit:contain;}
-
-#wa-fab{position:fixed;bottom:24px;right:24px;z-index:997;animation:float 2.5s ease-in-out infinite;}
+#wa-fab{position:fixed;bottom:24px;right:24px;z-index:997;}
 html[dir=rtl] #wa-fab{right:auto;left:24px;}
 .wa-fab-ring{position:absolute;inset:0;border-radius:50%;background:rgba(34,197,94,.35);animation:pulseRing 2s ease-out infinite;}
 .wa-fab-ring2{animation-delay:.6s;}
@@ -235,10 +244,6 @@ html[dir=rtl] .wa-fab-tooltip{right:auto;left:66px;}
 .modal-wa-btn{width:100%;display:flex;align-items:center;justify-content:center;gap:10px;background:linear-gradient(135deg,#22c55e,#16a34a);color:#fff;font-weight:800;font-size:1rem;padding:14px;border-radius:var(--radius);border:none;cursor:pointer;font-family:var(--font-body);margin-top:10px;box-shadow:0 6px 20px rgba(34,197,94,.4);transition:all .3s ease;}
 .modal-wa-btn:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(34,197,94,.5);}
 .modal-wa-btn svg{width:20px;height:20px;fill:#fff;}
-#scroll-top{position:fixed;bottom:92px;right:24px;z-index:996;width:42px;height:42px;border-radius:12px;background:var(--purple-pale);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1rem;color:var(--purple);box-shadow:0 4px 14px rgba(124,58,237,.2);transition:all .3s ease;opacity:0;pointer-events:none;}
-html[dir=rtl] #scroll-top{right:auto;left:24px;}
-#scroll-top.visible{opacity:1;pointer-events:all;}
-#scroll-top:hover{background:var(--purple);color:#fff;transform:translateY(-2px);}
 @media(max-width:900px){
   nav,#header .wa-header-btn{display:none!important;}
   .hamburger{display:flex!important;}
@@ -480,9 +485,7 @@ html[dir=rtl] #scroll-top{right:auto;left:24px;}
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="footer-logo">
-          <div class="footer-logo-icon">
-            <img src="logo.png" alt="KIDI BOOM" onerror="this.src='https://i.postimg.cc/4xBZvJSL/logo.jpg'">
-          </div>
+          <div class="footer-logo-icon"><img src="logo.png" alt="KIDI BOOM" onerror="this.src='https://i.postimg.cc/4xBZvJSL/logo.jpg'"></div>
           <div class="footer-logo-text"><span>KIDI</span><span> BOOM</span></div>
         </div>
         <p class="footer-tagline" data-tr="footerTagline">La joie dans chaque vêtement</p>
@@ -605,35 +608,6 @@ async function loadProducts() {
     rows.forEach((rowStr, index) => {
       const row = rowStr.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
       if(row.length > 2 && row[1]) { 
-        
-        let finalImg = '';
-        let waNum = CONFIG.whatsapp;
-        
-        // البحث عن رابط الصورة ورقم الواتساب في آخر أعمدة الشيت بذكاء
-        for (let i = Math.max(0, row.length - 6); i < row.length; i++) {
-            let cellVal = row[i] ? row[i].trim().replace(/^"|"$/g, "") : '';
-            if (!cellVal) continue;
-            
-            // 1. هل ده رابط؟ (يبدأ بـ http)
-            if (cellVal.startsWith('http')) {
-                let rawUrl = cellVal.split(',')[0].trim();
-                // لو رابط درايف هنفك شفرته
-                if (rawUrl.includes('drive.google') || rawUrl.includes('docs.google') || rawUrl.includes('open?id=')) {
-                    let match = rawUrl.match(/id=([^&]+)/) || rawUrl.match(/d\/([^/]+)/);
-                    if (match) {
-                        finalImg = 'https://lh3.googleusercontent.com/d/' + match[1];
-                    }
-                } else {
-                    // لو رابط بلوجر أو أي موقع تاني يتاخد زي ما هو
-                    finalImg = rawUrl; 
-                }
-            } 
-            // 2. هل ده رقم واتساب؟ (أرقام ومسافات وعلامة +)
-            else if (/^[\d\+\-\s]{8,20}$/.test(cellVal) && /\d{5}/.test(cellVal)) {
-                waNum = cellVal.replace(/[^\d\+]/g, '');
-            }
-        }
-
         products.push({
           id: 'p-' + index,
           name: row[1] ? row[1].trim().replace(/^"|"$/g, "") : '',
@@ -644,8 +618,26 @@ async function loadProducts() {
           descAr: row[6] ? row[6].trim().replace(/^"|"$/g, "") : '',
           sizeFr: row[7] ? row[7].trim().replace(/^"|"$/g, "") : '',
           sizeAr: row[8] ? row[8].trim().replace(/^"|"$/g, "") : '',
-          whatsapp: waNum,
-          image: finalImg
+          whatsapp: (row[9] && row[9].trim() !== "") ? row[9].trim().replace(/^"|"$/g, "") : CONFIG.whatsapp,
+          
+          image: (function() {
+              let linkStr = row[10] ? row[10].trim().replace(/^"|"$/g, "") : '';
+              let uploadStr = row[11] ? row[11].trim().replace(/^"|"$/g, "") : '';
+              
+              function fixLink(url) {
+                  if (!url) return '';
+                  let rawUrl = url.split(',')[0].trim();
+                  if (rawUrl.includes('drive.google') || rawUrl.includes('docs.google') || rawUrl.includes('open?id=')) {
+                      let match = rawUrl.match(/id=([^&]+)/) || rawUrl.match(/d\/([^/]+)/);
+                      if (match) return 'https://lh3.googleusercontent.com/d/' + match[1];
+                  }
+                  return rawUrl;
+              }
+
+              let finalImg = fixLink(uploadStr);
+              if (!finalImg) { finalImg = fixLink(linkStr); }
+              return finalImg;
+          })()
         });
       }
     });
@@ -707,10 +699,10 @@ function renderProducts(){
   grid.innerHTML = filtered.length ? '' : `<div class="no-products"><div class="big">🛍️</div><p>${t.noProd}</p></div>`;
   
   filtered.forEach((p,i)=>{
-    const name = lang==='ar' && p.nameAr ? p.nameAr : p.name;
-    const catName = lang==='ar' && p.catAr ? p.catAr : p.catFr;
+    const name = lang==='ar' ? p.nameAr : p.name;
+    const catName = lang==='ar' ? p.catAr : p.catFr;
     
-    if(!name) return; // منع المنتجات الفاضية
+    if(!name) return; 
     
     const card = document.createElement('div'); card.className = 'product-card';
     card.style.cssText = `animation:slideUp .5s ease ${i*.05}s both`;
@@ -747,7 +739,12 @@ function openModal(id){
 
 function orderProduct(id){ 
   const p = getProducts().find(x=>x.id===id); 
-  if(p) window.open(buildWA(lang==='ar'&&p.nameAr?p.nameAr:p.name, p.whatsapp, p.image, lang==='ar'?p.sizeAr:p.sizeFr),'_blank'); 
+  if(p) {
+    if(typeof fbq === 'function') {
+      fbq('track', 'Contact', { content_name: lang==='ar' ? p.nameAr : p.name, content_category: lang==='ar' ? p.catAr : p.catFr });
+    }
+    window.open(buildWA(lang==='ar'&&p.nameAr?p.nameAr:p.name, p.whatsapp, p.image, lang==='ar'?p.sizeAr:p.sizeFr),'_blank'); 
+  }
 }
 function orderFromModal(){ if(currentModalProduct) orderProduct(currentModalProduct.id); }
 function closeModal(e){ if(e.target.id==='modal') closeModalDirect(); }
@@ -755,11 +752,33 @@ function closeModalDirect(){ document.getElementById('modal').classList.remove('
 function scrollToSection(id){ const el = document.getElementById(id); if(el) window.scrollTo({top: el.offsetTop - 100, behavior:'smooth'}); }
 function toggleMenu(){ document.getElementById('hamburger').classList.toggle('open'); document.getElementById('mobile-menu').classList.toggle('open'); }
 
-// التشغيل الأولي
 document.getElementById('btn-fr').classList.toggle('active', lang==='fr');
 document.getElementById('btn-ar').classList.toggle('active', lang==='ar');
-document.documentElement.lang = lang; document.documentElement.dir = lang==='ar'?'rtl':'ltr';
+document.documentElement.lang = lang; document.documentElement.dir = l==='ar'?'rtl':'ltr';
 applyTranslations(); loadProducts(); updateAllWALinks();
+</script>
+
+<div id="fb-root"></div>
+<div id="fb-customer-chat" class="fb-customerchat"></div>
+<script>
+  var chatbox = document.getElementById('fb-customer-chat');
+  chatbox.setAttribute("page_id", "100079754059675");
+  chatbox.setAttribute("attribution", "biz_inbox");
+</script>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      xfbml            : true,
+      version          : 'v18.0'
+    });
+  };
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = 'https://connect.facebook.net/fr_FR/sdk/xfbml.customerchat.js';
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
 </script>
 </body>
 </html>
