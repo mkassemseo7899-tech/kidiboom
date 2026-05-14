@@ -793,7 +793,12 @@ html[dir=rtl] #messenger-fab {
   transform: scale(1.1) !important;
 }
 
-/* الحركة الهادية الخاصة بالماسنجر */
+/* 🚀 توحيد حركة الواتساب عشان تبقى زي الماسنجر بالظبط 🚀 */
+#wa-fab {
+  animation: floatMessenger 4s ease-in-out infinite !important;
+}
+
+/* الحركة الهادية الخاصة بالماسنجر والواتساب */
 @keyframes floatMessenger {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-4px); } /* بيتحرك 4 بيكسل بس بهدوء */
