@@ -769,28 +769,34 @@ applyTranslations(); loadProducts(); updateAllWALinks();
 /* تنسيق زرار الماسنجر العائم الجديد */
 #messenger-fab {
   position: fixed;
-  bottom: 24px; /* نفس ارتفاع الواتساب */
-  left: 24px; /* الهامش شمال في النسخة الفرنسي */
+  bottom: 24px !important; /* موازي للواتساب بالمللي */
+  left: 24px !important; /* الهامش في النسخة الفرنسي */
   z-index: 997;
-  width: 56px; /* نفس عرض الواتساب */
-  height: 56px; /* نفس ارتفاع الواتساب */
+  width: 56px !important; /* نفس عرض الواتساب */
+  height: 56px !important; /* نفس ارتفاع الواتساب */
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   box-shadow: 0 8px 24px rgba(0, 132, 255, 0.4);
   transition: transform 0.3s ease;
-  animation: floatB 3.5s ease-in-out infinite .4s; /* حركة أهدأ زي أيقونات الهيرو */
+  animation: floatMessenger 4s ease-in-out infinite !important; /* حركة مخصصة هادية جداً */
 }
 
-/* تبديل مكان زرار الماسنجر في النسخة العربي (RTL) */
+/* تبديل المكان في النسخة العربي */
 html[dir=rtl] #messenger-fab {
-  left: auto;
-  right: 24px; /* الهامش يمين في النسخة العربي */
+  left: auto !important;
+  right: 24px !important;
 }
 
 #messenger-fab:hover {
-  transform: scale(1.1);
+  transform: scale(1.1) !important;
+}
+
+/* الحركة الهادية الخاصة بالماسنجر */
+@keyframes floatMessenger {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); } /* بيتحرك 4 بيكسل بس بهدوء */
 }
 </style>
 </body>
