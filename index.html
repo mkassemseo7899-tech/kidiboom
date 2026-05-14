@@ -758,31 +758,35 @@ document.documentElement.lang = lang; document.documentElement.dir = l==='ar'?'r
 applyTranslations(); loadProducts(); updateAllWALinks();
 </script>
 
-<div id="fb-root"></div>
-    <div id="fb-customer-chat" class="fb-customerchat"></div>
+<a href="https://m.me/100079754059675" target="_blank" rel="noopener" id="messenger-fab" title="Contactez-nous sur Messenger">
+  <svg viewBox="0 0 256 256" width="56" height="56">
+    <path fill="#0084FF" d="M128 0C55.851 0 0 52.316 0 120.218c0 38.647 18.665 73.197 49.336 96.671v39.111l45.474-24.966c10.655 2.946 21.849 4.542 33.19 4.542 72.149 0 128-52.317 128-120.219C256 52.316 200.149 0 128 0z"/>
+    <path fill="#FFFFFF" d="M51.986 156.452l27.135-42.923c5.316-8.411 16.945-10.742 24.316-4.872l26.248 20.914a10.672 10.672 0 0 0 13.064.218l29.986-21.733c4.896-3.548 10.978 2.651 7.242 7.375l-27.135 42.924c-5.316 8.41-16.944 10.741-24.316 4.871l-26.248-20.913a10.67 10.67 0 0 0-13.064-.218l-29.986 21.732c-4.896 3.549-10.978-2.65-7.242-7.375z"/>
+  </svg>
+</a>
 
-    <script>
-      var chatbox = document.getElementById('fb-customer-chat');
-      chatbox.setAttribute("page_id", "100079754059675");
-      chatbox.setAttribute("attribution", "biz_inbox");
-    </script>
-
-    <script>
-      window.fbAsyncInit = function() {
-        FB.init({
-          xfbml            : true,
-          version          : 'v18.0'
-        });
-      };
-
-      (function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        // تم تغيير اللغة للإنجليزية لضمان التوافق العام
-        js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
-        fjs.parentNode.insertBefore(js, fjs);
-      }(document, 'script', 'facebook-jssdk'));
-    </script>
+<style>
+/* تنسيق زرار الماسنجر عشان يبقى في الناحية العكسية للواتساب */
+#messenger-fab {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  z-index: 997;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(0, 132, 255, 0.4);
+  transition: transform 0.3s ease;
+  animation: float 2.5s ease-in-out infinite 0.3s;
+}
+html[dir=rtl] #messenger-fab {
+  left: auto;
+  right: 24px;
+}
+#messenger-fab:hover {
+  transform: scale(1.1);
+}
+</style>
 </body>
 </html>
